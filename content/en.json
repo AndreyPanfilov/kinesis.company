@@ -1,0 +1,244 @@
+{
+  "meta": {
+    "title": "KINESIS — On-Premise AI for Business Documents in Vietnam",
+    "description": "KINESIS runs 100% on your hardware: reads, classifies and answers with citations from contracts, invoices and reports. Data never leaves the office. Ho Chi Minh City."
+  },
+  "a11y": {
+    "skip": "Skip to content",
+    "nav": "Main navigation",
+    "mobileMenu": "Open menu",
+    "lang": "Language"
+  },
+  "nav": {
+    "product": "Product",
+    "how": "How it works",
+    "for": "Who it's for",
+    "about": "About",
+    "contact": "Contact",
+    "cta": "Get a quote"
+  },
+  "hero": {
+    "eyebrow": "Private document intelligence — 100% on your hardware",
+    "titleA": "Ask anything about your documents.",
+    "titleAccent": "Get answers — with exact sources.",
+    "sub": "KINESIS runs entirely on your own hardware — it reads, classifies and answers from your contracts, invoices and reports, with every answer pointing to its exact source. Your documents never leave the building: sending private business data to online AI is not an option for Vietnamese businesses.",
+    "ctaPrimary": "Get a quote",
+    "ctaSecondary": "How it works",
+    "badge1": "100% on-premise — no cloud",
+    "badge2": "VN · EN · RU by default",
+    "badge3": "Built in Ho Chi Minh City"
+  },
+  "demo": {
+    "label": "Sample question — demo",
+    "qa": [
+      {
+        "q": "Was the contract with Truong Son Trading signed? What's the value?",
+        "a": "Signed (digital signature). Contract value: 2.4 billion VND, 24-month term.",
+        "cite": "Hopdong_TrangSon_2026.pdf · p. 2"
+      },
+      {
+        "q": "What's the total of August outbound invoices?",
+        "a": "14 outbound invoices totalling 1.18 billion VND. Line-by-line detail available.",
+        "cite": "Invoice_2026-08.xlsx · rows 1–14"
+      },
+      {
+        "q": "Which version of the social insurance policy is in effect?",
+        "a": "Policy v3.1, issued 01/07/2026, signed. Version 3.0 is superseded.",
+        "cite": "CS_BHXH_v3.1.pdf · p. 1"
+      }
+    ]
+  },
+  "product": {
+    "eyebrow": "Product",
+    "title": "A brain for your document archive",
+    "lead": "A fully local private document intelligence system that turns thousands of loose files into a knowledge base you can question.",
+    "f1": {
+      "title": "Your data stays put",
+      "text": "Runs 100% on your own hardware. No cloud, no external APIs — nobody reads your files. Not even us."
+    },
+    "f2": {
+      "title": "Every format",
+      "text": "PDF (scanned or text), DOC/DOCX, RTF, TXT, PPT/PPTX, Excel, ZIP/RAR archives and images (JPG, PNG, TIFF…) — 10,000+ documents. New and changed files are picked up and indexed automatically."
+    },
+    "f3": {
+      "title": "Truly understands Vietnamese",
+      "text": "OCR tuned for Vietnamese text: diacritics, company stamps and handwritten signatures are detected and recorded (“signed” status). Complex tables are reconstructed cell by cell and re-read with OCR — even tables that break commercial engines."
+    },
+    "f4": {
+      "title": "Cited answers",
+      "text": "Every answer points to the exact file and location — auditable and verifiable; nobody has to take your word for it. And if the answer isn't in your documents, KINESIS says exactly that — it never invents one."
+    },
+    "f5": {
+      "title": "Self-classifying archive",
+      "text": "Each document is classified (contract, invoice, report…) with value, dates, parties and signature status — filter, don't just search. Duplicate files are detected automatically: if you delete the original, the next run restores it from its copy; data for deleted files can be purged from the database on request."
+    },
+    "f6": {
+      "title": "Ask in your language",
+      "text": "Query in Vietnamese, English or Russian — retrieval stays native to the document's language, no translation step."
+    }
+  },
+  "how": {
+    "eyebrow": "Process",
+    "title": "Four steps, one answer",
+    "lead": "From a chaotic folder of files to a precise, cited answer — all running locally.",
+    "s1": {
+      "title": "Ingest",
+      "text": "Scans your folders and reads every format; OCR handles blurry, skewed scans, corrupted files and complex tables."
+    },
+    "s2": {
+      "title": "Organize",
+      "text": "Each file is classified and stripped of metadata — value, dates, parties — summarized bilingually (VN/EN) and stored with structure."
+    },
+    "s3": {
+      "title": "Ask",
+      "text": "KINESIS understands what you're actually asking about — which documents, which period, which conditions — and searches all of them at once."
+    },
+    "s4": {
+      "title": "Answer",
+      "text": "One precise answer with file citations — in seconds."
+    },
+    "hw": {
+      "title": "What you need to start",
+      "f1": {
+        "k": "Minimum hardware",
+        "v": "One workstation in your office — RTX 3090 with 64GB RAM is the minimum we recommend. Bigger archives or a faster first read = more GPUs."
+      },
+      "f2": {
+        "k": "First run",
+        "v": "About 1,000 documents (scans included) are fully read overnight on standard hardware. Larger archives take proportionally longer — you get the estimate before we start."
+      },
+      "f3": {
+        "k": "Live in 1–2 days",
+        "v": "Setup, loading and tuning — counted from the day your files are handed over."
+      }
+    }
+  },
+  "sb": {
+    "eyebrow": "Beyond the archive",
+    "title": "Going beyond the document archive",
+    "badge": "In progress",
+    "module": {
+      "title": "Second Brain — your second memory",
+      "text": "A personal knowledge layer on top of RAG: links your notes, decisions and follow-ups to the exact source documents. In development — early clients get priority."
+    },
+    "ft": {
+      "badge": "On request",
+      "title": "Custom model fine-tuning",
+      "text": "If the standard setup isn't enough, we fine-tune models for your specific workflows — proprietary formats, industry terminology. Quoted per project."
+    }
+  },
+  "for": {
+    "eyebrow": "Who it's for",
+    "title": "Where documents are the job",
+    "i1": {
+      "name": "Law firms",
+      "line": "Find the clause across 400 old contracts — before someone asks you about it."
+    },
+    "i2": {
+      "name": "Accounting firms",
+      "line": "Reconcile invoices, debts and statements across periods — without opening a single file."
+    },
+    "i3": {
+      "name": "HR departments",
+      "line": "Labor contracts, policies, payrolls — retrieve the exact version currently in force."
+    },
+    "i4": {
+      "name": "Logistics",
+      "line": "Certs of origin, waybills, declarations — look up by shipment, partner or date, in seconds."
+    },
+    "i5": {
+      "name": "Ad agencies & studios",
+      "line": "Photo libraries, campaign decks, client briefs — find the exact asset or reference for a project on the fly."
+    },
+    "i6": {
+      "name": "Any document-heavy business",
+      "line": "If your team lives in PDF folders, KINESIS is the company's shared brain."
+    }
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "title": "Questions you'd ask anyway",
+    "q1": {
+      "t": "What hardware do I need?",
+      "a": "From one workstation in your office: an RTX 3090 with 64GB RAM is the minimum we recommend. More volume or a faster first read needs more GPUs/VRAM — we size it to your archive in the quote."
+    },
+    "q2": {
+      "t": "How long until it's live?",
+      "a": "One to two days including setup. Roughly 1,000 documents (scans included) are fully read overnight on standard hardware; larger archives take proportionally longer."
+    },
+    "q3": {
+      "t": "What if the answer isn't in my documents?",
+      "a": "KINESIS tells you the archive has no such information — it never invents an answer. No source, no claim."
+    },
+    "q4": {
+      "t": "Who can use it, and how is access controlled?",
+      "a": "Everyone you connect to the system. Access is per person — extra seats are priced separately in the quote."
+    },
+    "q5": {
+      "t": "Which languages do the documents have to be in?",
+      "a": "Vietnamese, English and Russian out of the box — the OCR is tuned for Vietnamese diacritics, stamps and signatures. Other languages on request."
+    }
+  },
+  "about": {
+    "eyebrow": "About KINESIS",
+    "title": "One engineer. One product. No middle layer.",
+    "p1": "KINESIS is an IT company (CÔNG TY TNHH KINESIS) founded and built hands-on by Andrey Panfilov, based in Ho Chi Minh City — focused on local document intelligence, custom software development and IT consulting.",
+    "p2": "No sales team, no management layer between you and the person writing the software. You talk directly to the engineer who builds the system — I work in multiple languages (default: Vietnamese, English, Russian).",
+    "f1": {
+      "k": "Headquarters",
+      "v": "Ho Chi Minh City, Vietnam"
+    },
+    "f2": {
+      "k": "System languages (default)",
+      "v": "Vietnamese · English · Russian — other languages on request"
+    },
+    "f3": {
+      "k": "Flagship product",
+      "v": "KINESIS RAG (runs on client hardware)"
+    },
+    "f4": {
+      "k": "Contact",
+      "v": "+84 374 514 377 · kinesiscomp@gmail.com"
+    }
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Get a quote",
+    "lead": "Tell us briefly about your documents — file types, scale, hardware. We reply with a plan and a quote.",
+    "priceline": "How it's priced: fixed base price + monthly maintenance · extra seats and the Second Brain module are priced separately · archives over 10,000 documents move to a higher tier.",
+    "form": {
+      "name": "Full name",
+      "company": "Company",
+      "email": "Email or phone",
+      "message": "Message",
+      "submit": "Request a quote",
+      "phName": "Jane Smith",
+      "phCompany": "ABC Company …",
+      "phEmail": "you@company.vn",
+      "phMessage": "Document types, volume, hardware…",
+      "success": "Thank you! Your request is in — we'll get back to you during business hours.",
+      "error": "Couldn't send it. Please contact us directly: kinesiscomp@gmail.com"
+    },
+    "direct": {
+      "title": "Or reach us directly",
+      "emailLabel": "Email",
+      "phoneLabel": "Phone / Zalo",
+      "telegramLabel": "Telegram",
+      "note": "We reply within one business day (Vietnam time)."
+    },
+    "qr": {
+      "title": "Or scan to chat",
+      "zalo": "Zalo",
+      "telegram": "Telegram",
+      "note": "Point your phone camera at the code — the chat opens instantly.",
+      "zaloLink": "https://zalo.me/84374514377",
+      "zaloSrc": "assets/zalo-qr.png",
+      "telegramLink": "https://t.me/+84374514377",
+      "telegramSrc": "assets/telegram-qr.png"
+    }
+  },
+  "footer": {
+    "legal": "CÔNG TY TNHH KINESIS · Tax code 0317474288 · No. 3, Nguyen Co Thach St., An Khanh Ward, Ho Chi Minh City",
+    "rights": "© 2026 KINESIS. All rights reserved."
+  }
+}
