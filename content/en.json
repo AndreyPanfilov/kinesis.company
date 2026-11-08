@@ -83,7 +83,7 @@
     "lead": "We handle the hardware engineering, the software deployment, and the setup. You just ask the questions.",
     "s1": {
       "title": "1. We Engineer the Hardware",
-      "text": "You don't buy a random PC. We custom-build, assemble, and configure a high-performance, whisper-quiet AI workstation directly in your office."
+      "text": "You don't buy a random PC. We custom-build, assemble, and configure a high-performance, whisper-quiet AI workstation for your office."
     },
     "s2": {
       "title": "2. Connect Your Folders",
@@ -98,7 +98,7 @@
       "text": "Receive a precise answer in seconds, with a citation linking directly to the original file."
     },
     "hw": {
-      "title": "Investment & Government Grants",
+      "title": "Investment & Pricing",
       "f1": {
         "k": "Software & Setup Fee",
         "v": "Starting at $8,000 - $10,000 USD. This covers software licensing, custom deployment, and indexing of your initial document archive."
@@ -108,12 +108,8 @@
         "v": "We build high-performance, multi-GPU workstations specifically for AI. Hardware is quoted per project based on your required processing speed and document volume."
       },
       "f3": {
-        "k": "Monthly Maintenance",
-        "v": "From $200 - $500 USD/month for system monitoring, priority updates, and technical support."
-      },
-      "f4": {
-        "k": "State Digital Grants",
-        "v": "Many Vietnamese businesses are eligible for government digital transformation grants (e.g., HCMC initiatives). We provide guidance on the eligibility criteria and application process, but funding is not guaranteed and depends on state approval."
+        "k": "Monthly Maintenance & Grants",
+        "v": "From $200 - $500 USD/month. Note: Many Vietnamese businesses are eligible for state digital grants that can cover a portion of the initial setup costs. We assist with the application process."
       }
     }
   },
