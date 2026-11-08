@@ -26,7 +26,7 @@
     "ctaSecondary": "Watch demo",
     "badge1": "100% On-Premise",
     "badge2": "Native VN & EN Support",
-    "badge3": "Up to 50% Gov. Subsidy eligible"
+    "badge3": "Eligible for Gov. Digital Grants"
   },
   "demo": {
     "label": "Sample question — live demo",
@@ -53,12 +53,12 @@
     "title": "Enterprise-grade intelligence for your document archive",
     "lead": "Turn thousands of scattered PDFs, scans, and Excel files into a single, highly secure knowledge base.",
     "f1": {
-      "title": "Absolute Privacy & Malware Defense",
-      "text": "KINESIS runs on a dedicated workstation in your office with no internet connection required. We also validate PDF structures before processing to block malicious files and exploits—keeping your network completely safe."
+      "title": "Absolute Privacy & Security",
+      "text": "KINESIS runs on a dedicated workstation with no internet connection required. We use TLS 1.3 encryption for the local interface and validate PDF structures to block malicious files—keeping your network completely safe."
     },
     "f2": {
       "title": "Reads the Unreadable",
-      "text": "Blurry scans? Upside-down pages? Complex accounting tables that other software turns into garbage? Our custom engine perfectly reads Vietnamese text, company stamps, digital signatures, and messy tables."
+      "text": "Blurry scans? Upside-down pages? Complex accounting tables that other software turns into garbage? Our custom engine perfectly reads Vietnamese text, company stamps, official digital signatures, and messy tables."
     },
     "f3": {
       "title": "Cited Answers, Zero Guessing",
@@ -73,8 +73,8 @@
       "text": "Interact with the system natively in Vietnamese or English. If your archive contains documents in other languages (like Russian), KINESIS preserves the original text perfectly for retrieval while communicating with you in VN or EN."
     },
     "f6": {
-      "title": "Custom Engineered, Not Wrapped",
-      "text": "This is not a cheap script wrapped around ChatGPT. KINESIS is built from the ground up for stability, utilizing custom AI memory management to ensure the system never crashes or freezes under heavy loads."
+      "title": "Easy Local Interface",
+      "text": "Fully wrapped in a Docker container with a local web interface. No command lines, no complicated setup—your team accesses the AI securely through their browser."
     }
   },
   "how": {
@@ -98,18 +98,22 @@
       "text": "Receive a precise answer in seconds, with a citation linking directly to the original file."
     },
     "hw": {
-      "title": "Investment & Government Subsidy",
+      "title": "Investment & Government Grants",
       "f1": {
-        "k": "Initial Setup (Software + Custom Hardware)",
-        "v": "Starting at $8,000 - $10,000 USD. This includes the custom-built AI server, software installation, and initial indexing. Pricing scales with your specific document volume."
+        "k": "Software & Setup Fee",
+        "v": "Starting at $8,000 - $10,000 USD. This covers software licensing, custom deployment, and indexing of your initial document archive."
       },
       "f2": {
+        "k": "Hardware (Separate Budget)",
+        "v": "The AI server hardware is quoted separately based on your required processing speed and document volume. (Typically ranges from $2,000 to $5,000+ depending on GPU requirements)."
+      },
+      "f3": {
         "k": "Monthly Maintenance",
         "v": "From $200 - $500 USD/month for system monitoring, priority updates, and technical support."
       },
-      "f3": {
-        "k": "Government Support",
-        "v": "Vietnamese businesses can receive up to 50% compensation for AI integration costs from the government. We provide guidance on the application process."
+      "f4": {
+        "k": "State Digital Grants",
+        "v": "Many Vietnamese businesses are eligible for government digital transformation grants (e.g., HCMC initiatives). We provide guidance on the eligibility criteria and application process, but funding is not guaranteed and depends on state approval."
       }
     }
   },
@@ -159,8 +163,8 @@
     "eyebrow": "FAQ",
     "title": "Common Questions",
     "q1": {
-      "t": "Do I need to buy the hardware myself?",
-      "a": "No. With a background in high-performance computing and 16 years of experience building workstation-grade systems, our founder will source, assemble, and install the AI server directly in your office. You get a perfectly optimized, turnkey appliance."
+      "t": "How is the system delivered?",
+      "a": "As a fully configured Docker container running on a custom-built AI workstation. We handle the hardware engineering, software deployment, and network setup. You just open your browser and start asking questions."
     },
     "q2": {
       "t": "How long until it's live?",
@@ -171,8 +175,8 @@
       "a": "KINESIS AI is programmed to be strictly factual. If the data doesn't exist in your archive, it will explicitly tell you it doesn't know. It never makes things up."
     },
     "q4": {
-      "t": "How does the 50% government subsidy work?",
-      "a": "The Vietnamese government actively supports digital transformation and AI integration for SMBs. We can guide you on how to apply for the subsidy, which can cover a significant portion of the initial setup cost."
+      "t": "Can we use government grants for this?",
+      "a": "Many Vietnamese businesses are eligible for digital transformation grants (like the HCMC DXCenter program). We can guide you on the application process, but the final approval and funding amount are determined by the government, not by us."
     },
     "q5": {
       "t": "Does it verify digital signatures?",
@@ -204,8 +208,8 @@
   "contact": {
     "eyebrow": "Contact",
     "title": "Request a Consultation",
-    "lead": "Tell us briefly about your documents and your office setup. We'll reply with a custom plan, hardware specs, and an official quote.",
-    "priceline": "Investment starts at $8,000 for the turnkey system. Hardware is engineered specifically for your volume. Ask us about the 50% Vietnamese AI subsidy to reduce your initial cost.",
+    "lead": "Tell us briefly about your documents and your office setup. We'll reply with a custom software plan, hardware specs, and an official quote.",
+    "priceline": "Software setup starts at $8,000. Hardware is a separate budget (custom-built for your volume). Ask us about state digital transformation grants that may cover a portion of your initial cost.",
     "form": {
       "name": "Full name",
       "company": "Company",
