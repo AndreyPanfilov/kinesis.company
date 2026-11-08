@@ -1,10 +1,10 @@
 {
   "meta": {
-    "title": "KINESIS — AI trên máy riêng cho tài liệu doanh nghiệp tại Việt Nam",
-    "description": "KINESIS chạy 100% trên máy của bạn: đọc, phân loại và trả lời có trích dẫn từ hợp đồng, hóa đơn, báo cáo. Dữ liệu không rời khỏi văn phòng. TP. Hồ Chí Minh."
+    "title": "KINESIS AI — Trí tuệ nhân tạo riêng tư cấp doanh nghiệp",
+    "description": "KINESIS AI chạy 100% trên phần cứng của văn phòng bạn: đọc, phân loại và trả lời kèm trích dẫn từ hợp đồng, hóa đơn và báo cáo. Dữ liệu không bao giờ rời khỏi tòa nhà."
   },
   "a11y": {
-    "skip": "Bỏ qua đến nội dung",
+    "skip": "Chuyển đến nội dung",
     "nav": "Điều hướng chính",
     "mobileMenu": "Mở menu",
     "lang": "Ngôn ngữ"
@@ -12,189 +12,189 @@
   "nav": {
     "product": "Sản phẩm",
     "how": "Cách hoạt động",
-    "for": "Đối tượng",
+    "for": "Dành cho ai",
     "about": "Về chúng tôi",
     "contact": "Liên hệ",
-    "cta": "Nhận báo giá"
+    "cta": "Yêu cầu Tư vấn"
   },
   "hero": {
-    "eyebrow": "Trí tuệ cho kho tài liệu riêng — 100% trên máy của bạn",
-    "titleA": "Hỏi bất cứ điều gì về tài liệu của bạn.",
-    "titleAccent": "Nhận câu trả lời — kèm đúng nguồn.",
-    "sub": "KINESIS chạy hoàn toàn trên máy của bạn — đọc, phân loại và trả lời từ hợp đồng, hóa đơn, báo cáo; mỗi câu trả lời đều chỉ đúng nguồn. Tài liệu của bạn không bao giờ rời khỏi tòa nhà: việc gửi dữ liệu kinh doanh riêng tư cho AI trực tuyến vốn không phải lựa chọn của doanh nghiệp Việt.",
-    "ctaPrimary": "Nhận báo giá",
-    "ctaSecondary": "Cách hoạt động",
-    "badge1": "100% trên máy của bạn — không cloud",
-    "badge2": "VN · EN · RU — mặc định",
-    "badge3": "Xây dựng tại TP. Hồ Chí Minh"
+    "eyebrow": "KINESIS AI — 100% Bảo mật & Nội bộ",
+    "titleA": "Hỏi bất cứ điều gì về tài liệu doanh nghiệp của bạn.",
+    "titleAccent": "Nhận câu trả lời — với nguồn trích dẫn chính xác.",
+    "sub": "KINESIS AI chạy hoàn toàn trên một máy chủ bảo mật, được thiết kế riêng và đặt tại văn phòng của bạn. Hệ thống đọc, sắp xếp và trả lời các câu hỏi từ hợp đồng, hóa đơn và báo cáo—mỗi câu trả lời đều chỉ ra chính xác nguồn dữ liệu gốc. Ngừng đưa dữ liệu doanh nghiệp nhạy cảm lên các AI công cộng. Tài liệu của bạn không bao giờ rời khỏi tòa nhà.",
+    "ctaPrimary": "Yêu cầu Tư vấn",
+    "ctaSecondary": "Xem demo",
+    "badge1": "100% Nội bộ (On-Premise)",
+    "badge2": "Hỗ trợ tiếng Việt & Anh",
+    "badge3": "Đủ điều kiện nhận tài trợ Chuyển đổi số"
   },
   "demo": {
-    "label": "Minh họa — câu hỏi mẫu",
+    "label": "Câu hỏi mẫu — demo trực tiếp",
     "qa": [
       {
-        "q": "Hợp đồng với Truong Son Trading đã ký chưa? Giá trị bao nhiêu?",
-        "a": "Đã ký (chữ ký số). Giá trị hợp đồng 2,4 tỷ VND, thời hạn 24 tháng.",
-        "cite": "Hopdong_TrangSon_2026.pdf · tr. 2"
+        "q": "Chúng ta đã thanh toán hóa đơn tiền điện tháng 1 cho văn phòng Sài Gòn chưa?",
+        "a": "Rồi. Khoản thanh toán 14.500.000 VNĐ đã được ghi nhận vào ngày 12 tháng 1. Biên lai đã được đính kèm.",
+        "cite": "HoaDon_Dien_Thang1_2026.xlsx · dòng 42"
       },
       {
-        "q": "Tổng hóa đơn đầu ra tháng 8 là bao nhiêu?",
-        "a": "14 hóa đơn đầu ra, tổng 1,18 tỷ VND. Có chi tiết từng dòng nếu bạn cần.",
-        "cite": "Invoice_2026-08.xlsx · dòng 1–14"
+        "q": "Điều khoản chấm dứt hợp đồng lao động nhân sự là gì?",
+        "a": "Yêu cầu báo trước bằng văn bản 45 ngày. Trợ cấp thôi việc được tính bằng 1 tháng lương cho mỗi năm làm việc.",
+        "cite": "Hopdong_LaoDong_2025.pdf · tr. 4"
       },
       {
-        "q": "Phiên bản chính sách BHXH nào đang hiệu lực?",
-        "a": "Chính sách BHXH bản 3.1, ban hành 01/07/2026, đã ký. Bản 3.0 hết hiệu lực.",
-        "cite": "CS_BHXH_v3.1.pdf · tr. 1"
+        "q": "Tìm điều khoản về phạt chậm thanh toán trong hợp đồng Trường Sơn.",
+        "a": "Mức phạt 0,05%/ngày áp dụng cho các khoản thanh toán quá hạn, không vượt quá 8% tổng giá trị hợp đồng.",
+        "cite": "Hopdong_TruongSon_2026.pdf · tr. 2"
       }
     ]
   },
   "product": {
-    "eyebrow": "Sản phẩm",
-    "title": "Bộ não cho kho tài liệu của bạn",
-    "lead": "Hệ thống trí tuệ tài liệu riêng, chạy hoàn toàn cục bộ, biến hàng nghìn file rời rạc thành một kho tri thức có thể hỏi đáp.",
+    "eyebrow": "Giải pháp",
+    "title": "Trí tuệ cấp doanh nghiệp cho kho tài liệu của bạn",
+    "lead": "Biến hàng ngàn tệp PDF, bản scan và Excel rải rác thành một cơ sở tri thức duy nhất, bảo mật cao.",
     "f1": {
-      "title": "Dữ liệu không đi đâu cả",
-      "text": "Chạy 100% trên máy của bạn. Không cloud, không API bên ngoài — không ai đọc được file của bạn. Kể cả chúng tôi."
+      "title": "Bảo mật & An toàn tuyệt đối",
+      "text": "KINESIS chạy trên một máy trạm chuyên dụng không cần kết nối internet. Chúng tôi sử dụng mã hóa TLS 1.3 cho giao diện nội bộ và kiểm tra cấu trúc PDF để chặn các tệp độc hại—giữ cho mạng của bạn hoàn toàn an toàn."
     },
     "f2": {
-      "title": "Mọi định dạng",
-      "text": "PDF (quét lẫn text), DOC/DOCX, RTF, TXT, PPT/PPTX, Excel, archive ZIP/RAR và ảnh (JPG, PNG, TIFF…) — 10.000+ tài liệu. File mới hoặc thay đổi được nhận và index tự động."
+      "title": "Đọc được cả những tài liệu khó đọc nhất",
+      "text": "Bản scan mờ? Trang bị ngược? Bảng kế toán phức tạp mà phần mềm khác biến thành rác? Công cụ tùy chỉnh của chúng tôi đọc hoàn hảo văn bản tiếng Việt, con dấu công ty, chữ ký số chính thức và các bảng biểu lộn xộn."
     },
     "f3": {
-      "title": "Hiểu tiếng Việt thật sự",
-      "text": "OCR tinh chỉnh cho văn bản Việt: dấu, con dấu và chữ ký tay được phát hiện và ghi nhận (trạng thái «đã ký»). Bảng phức tạp được dựng lại từng ô và OCR lại từng ô — kể cả những bảng làm vỡ các engine thương mại."
+      "title": "Trả lời có trích dẫn, không đoán mò",
+      "text": "Mỗi câu trả lời đều chỉ ra chính xác tệp và số trang. Nếu thông tin không có trong tài liệu của bạn, hệ thống sẽ nói rõ 'Tôi không biết'—nó không bao giờ tự bịa ra sự thật."
     },
     "f4": {
-      "title": "Câu trả lời có trích dẫn",
-      "text": "Mỗi câu trả lời chỉ đúng file và vị trí nguồn — kiểm toán được, đối chiếu được, không cần tin suông. Và nếu câu trả lời không có trong tài liệu, KINESIS nói thẳng điều đó — không bao giờ bịa."
+      "title": "Ngữ cảnh toàn văn thực sự",
+      "text": "Không giống các công cụ AI cơ bản chỉ đọc trang đầu tiên, KINESIS đọc và tóm tắt toàn bộ tài liệu, ngay cả khi tài liệu dài hàng trăm trang. Bạn nhận được sự hiểu biết đầy đủ và chính xác về mọi tệp trong kho lưu trữ."
     },
     "f5": {
-      "title": "Tự phân loại, tự dọn kho",
-      "text": "Mỗi tài liệu được phân loại (hợp đồng, hóa đơn, báo cáo…) kèm giá trị, ngày, các bên, trạng thái ký — tìm bằng bộ lọc, không chỉ bằng từ khóa. File trùng lặp được nhận diện tự động: nếu bạn xóa bản gốc, lần chạy kế tiếp khôi phục nó từ bản sao; dữ liệu của file đã xóa có thể được dọn khỏi cơ sở dữ liệu theo yêu cầu."
+      "title": "Lõi song ngữ (Việt & Anh)",
+      "text": "Tương tác với hệ thống bằng tiếng Việt hoặc tiếng Anh. Nếu kho lưu trữ có tài liệu bằng ngôn ngữ khác (như tiếng Nga), KINESIS vẫn bảo toàn nguyên văn bản gốc để truy xuất trong khi giao tiếp với bạn bằng tiếng Việt hoặc tiếng Anh."
     },
     "f6": {
-      "title": "Hỏi bằng ngôn ngữ của bạn",
-      "text": "Tra vấn bằng tiếng Việt, Anh hoặc Nga — hệ thống tìm theo ngôn ngữ gốc của tài liệu, không cần bước dịch."
+      "title": "Giao diện nội bộ dễ sử dụng",
+      "text": "Được đóng gói hoàn chỉnh trong Docker container với giao diện web nội bộ. Không dòng lệnh, không cài đặt phức tạp—đội ngũ của bạn truy cập AI một cách bảo mật thông qua trình duyệt."
     }
   },
   "how": {
     "eyebrow": "Quy trình",
-    "title": "Bốn bước, một câu trả lời",
-    "lead": "Từ thư mục file hỗn loạn đến câu trả lời chính xác có trích dẫn — tất cả chạy cục bộ.",
+    "title": "Một thiết bị trọn gói. Sẵn sàng sau 1-2 ngày.",
+    "lead": "Chúng tôi lo phần cứng, phần mềm và cài đặt. Bạn chỉ cần đặt câu hỏi.",
     "s1": {
-      "title": "Đưa vào",
-      "text": "Quét thư mục, đọc mọi định dạng; OCR xử lý bản quét mờ, nghiêng, file hỏng và bảng phức tạp."
+      "title": "1. Chúng tôi tự lắp ráp phần cứng",
+      "text": "Bạn không mua một chiếc PC ngẫu nhiên. Chúng tôi tự lắp ráp, cấu hình một máy trạm AI hiệu suất cao, hoạt động êm ái cho văn phòng của bạn."
     },
     "s2": {
-      "title": "Tổ chức",
-      "text": "Mỗi file được phân loại, bóc tách metadata (giá trị, ngày, các bên), tóm tắt song ngữ (VN/EN) và lưu có cấu trúc."
+      "title": "2. Kết nối thư mục của bạn",
+      "text": "Trỏ KINESIS AI đến các thư mục tài liệu của bạn. Hệ thống sẽ tự động quét, đọc và phân loại mọi thứ trong đêm."
     },
     "s3": {
-      "title": "Hỏi",
-      "text": "KINESIS hiểu bạn thực sự hỏi về điều gì — tài liệu nào, thời kỳ nào, điều kiện nào — và tìm cùng lúc tất cả."
+      "title": "3. Đặt câu hỏi",
+      "text": "Gõ một câu hỏi bình thường. AI sẽ ngay lập tức lọc qua hàng ngàn tệp, tìm ra các điều khoản, hóa đơn hoặc dữ liệu chính xác mà bạn cần."
     },
     "s4": {
-      "title": "Trả lời",
-      "text": "Một câu trả lời chính xác kèm trích dẫn file — trong vài giây."
+      "title": "4. Nhận câu trả lời có trích dẫn",
+      "text": "Nhận câu trả lời chính xác trong vài giây, kèm theo liên kết trích dẫn trực tiếp đến tệp gốc."
     },
     "hw": {
-      "title": "Bạn cần gì để bắt đầu",
+      "title": "Chi phí & Tài trợ Chính phủ",
       "f1": {
-        "k": "Cấu hình tối thiểu",
-        "v": "Một workstation trong văn phòng — RTX 3090 với 64GB RAM là mức tối thiểu chúng tôi đề xuất. Kho lớn hơn hoặc đọc nhanh hơn = thêm GPU."
+        "k": "Phí Phần mềm & Triển khai",
+        "v": "Từ 200 - 250 triệu VNĐ. Bao gồm bản quyền phần mềm, triển khai tùy chỉnh và lập chỉ mục kho tài liệu ban đầu của bạn."
       },
       "f2": {
-        "k": "Lần chạy đầu",
-        "v": "Khoảng 1.000 tài liệu (kể cả bản quét) được đọc đầy đủ qua một đêm trên cấu hình chuẩn. Kho lớn hơn mất thời gian tương ứng — bạn nhận báo ước tính trước khi bắt đầu."
+        "k": "Phần cứng (Ngân sách riêng)",
+        "v": "Chúng tôi chế tạo các máy trạm đa GPU hiệu suất cao dành riêng cho AI. Phần cứng được báo giá theo từng dự án dựa trên tốc độ xử lý và khối lượng tài liệu bạn yêu cầu."
       },
       "f3": {
-        "k": "Sẵn sàng sau 1–2 ngày",
-        "v": "Cài đặt, nạp dữ liệu và tinh chỉnh — tính từ ngày bàn giao file."
+        "k": "Bảo trì hàng tháng & Tài trợ",
+        "v": "Từ 5 - 12 triệu VNĐ/tháng. Lưu ý: Nhiều doanh nghiệp Việt Nam đủ điều kiện nhận tài trợ chuyển đổi số từ nhà nước, có thể chi trả một phần chi phí thiết lập ban đầu. Chúng tôi hỗ trợ quá trình nộp đơn."
       }
     }
   },
   "sb": {
-    "eyebrow": "Vượt ra ngoài kho tài liệu",
-    "title": "Đi xa hơn kho tài liệu",
+    "eyebrow": "Sắp ra mắt",
+    "title": "Vượt xa khỏi kho tài liệu",
     "badge": "Đang phát triển",
     "module": {
-      "title": "Second Brain — bộ nhớ thứ hai của bạn",
-      "text": "Lớp tri thức cá nhân trên nền RAG: gắn ghi chú, quyết định và việc theo dõi của bạn với đúng tài liệu nguồn. Đang phát triển — khách hàng sớm được ưu tiên."
+      "title": "Second Brain — Bộ nhớ thứ hai của công ty",
+      "text": "Một lớp tri thức tùy chọn liên kết các ghi chú, quyết định và công việc tiếp theo của nhóm bạn trực tiếp với các tài liệu nguồn. Khách hàng đầu tiên sẽ được ưu tiên trải nghiệm."
     },
     "ft": {
-      "badge": "Theo yêu cầu",
-      "title": "Fine-tune mô hình riêng",
-      "text": "Nếu cấu hình chuẩn chưa đủ, chúng tôi fine-tune mô hình theo quy trình của bạn — định dạng riêng, thuật ngữ ngành. Báo giá theo dự án."
+      "badge": "Tùy chỉnh",
+      "title": "Tinh chỉnh mô hình theo yêu cầu",
+      "text": "Nếu ngành của bạn sử dụng thuật ngữ chuyên môn độc quyền, chúng tôi có thể tinh chỉnh các mô hình AI dành riêng cho quy trình làm việc của bạn."
     }
   },
   "for": {
-    "eyebrow": "Đối tượng",
-    "title": "Nơi tài liệu chính là công việc",
+    "eyebrow": "Dành cho ai",
+    "title": "Dành cho những doanh nghiệp vận hành bằng giấy tờ",
     "i1": {
-      "name": "Công ty luật",
-      "line": "Tìm điều khoản trong 400 hợp đồng cũ — trước khi ai đó hỏi bạn về nó."
+      "name": "Công ty Luật",
+      "line": "Tìm một điều khoản cụ thể trong 400 hợp đồng cũ chỉ trong 3 giây—trước khi khách hàng kịp cúp máy."
     },
     "i2": {
-      "name": "Công ty kế toán",
-      "line": "Đối chiếu hóa đơn, công nợ, bảng kê qua nhiều kỳ — không cần mở bất kỳ file nào."
+      "name": "Kế toán",
+      "line": "Đối chiếu hóa đơn, công nợ và sao kê qua nhiều năm mà không cần mở bất kỳ tệp Excel nào."
     },
     "i3": {
-      "name": "Phòng nhân sự",
-      "line": "Hợp đồng lao động, chính sách, lương — lấy đúng phiên bản đang hiệu lực."
+      "name": "Phòng Nhân sự",
+      "line": "Truy xuất chính xác phiên bản hợp đồng lao động và chính sách công ty đang có hiệu lực ngay lập tức."
     },
     "i4": {
-      "name": "Logistics",
-      "line": "C/O, vận đơn, tờ khai — tra theo lô hàng, đối tác hoặc ngày, trong vài giây."
+      "name": "Logistics / Xuất nhập khẩu",
+      "line": "Tra cứu giấy chứng nhận xuất xứ, vận đơn và tờ khai hải quan theo lô hàng, đối tác hoặc ngày tháng."
     },
     "i5": {
-      "name": "Agency & studio quảng cáo",
-      "line": "Kho ảnh, deck chiến dịch, brief khách hàng — tìm đúng tài liệu tham chiếu cho dự án ngay khi cần."
+      "name": "Agency & Studio",
+      "line": "Quản lý thư viện ảnh khổng lồ, tài liệu chiến dịch và brief khách hàng—tìm chính xác tài nguyên cần thiết ngay lập tức."
     },
     "i6": {
-      "name": "Mọi doanh nghiệp sống với tài liệu",
-      "line": "Nếu team của bạn sống trong các thư mục PDF, KINESIS là bộ não chung của công ty."
+      "name": "Bất kỳ doanh nghiệp nhiều giấy tờ nào",
+      "line": "Nếu đội ngũ của bạn mất hàng giờ lục lọi các thư mục PDF, KINESIS chính là bộ não chung của công ty."
     }
   },
   "faq": {
     "eyebrow": "Câu hỏi thường gặp",
-    "title": "Những câu hỏi bạn sẽ hỏi thôi",
+    "title": "Các câu hỏi phổ biến",
     "q1": {
-      "t": "Tôi cần máy cấu hình thế nào?",
-      "a": "Từ một workstation trong văn phòng: RTX 3090 với 64GB RAM là mức tối thiểu chúng tôi đề xuất. Dữ liệu nhiều hơn hoặc đọc lần đầu nhanh hơn thì cần thêm GPU/VRAM — chúng tôi sẽ tính theo kho của bạn trong báo giá."
+      "t": "Hệ thống được bàn giao như thế nào?",
+      "a": "Dưới dạng một Docker container được cấu hình đầy đủ, chạy trên một máy trạm AI được chế tạo riêng. Chúng tôi xử lý phần cứng, phần mềm và thiết lập mạng. Bạn chỉ cần mở trình duyệt và bắt đầu đặt câu hỏi."
     },
     "q2": {
-      "t": "Bao lâu thì dùng được?",
-      "a": "1–2 ngày kể cả cài đặt. Khoảng 1.000 tài liệu (kể cả bản quét) được đọc đầy đủ qua một đêm trên cấu hình chuẩn; kho lớn hơn mất thời gian tương ứng."
+      "t": "Bao lâu thì đưa vào sử dụng?",
+      "a": "Cài đặt vật lý mất 1–2 ngày. Sau đó AI sẽ đọc và lập chỉ mục các tệp cũ của bạn qua đêm (khoảng 1.000 tài liệu mỗi đêm). Các bản cập nhật hàng ngày sẽ diễn ra tự động trong nền."
     },
     "q3": {
-      "t": "Nếu câu trả lời không có trong tài liệu của tôi?",
-      "a": "KINESIS nói thẳng là kho không có thông tin đó — không bao giờ bịa câu trả lời. Không có nguồn — không có khẳng định."
+      "t": "Nếu câu trả lời không có trong tài liệu của tôi thì sao?",
+      "a": "KINESIS AI được lập trình để hoàn toàn trung thực với dữ liệu. Nếu dữ liệu không tồn tại trong kho lưu trữ của bạn, hệ thống sẽ nói rõ rằng nó không biết. Nó không bao giờ tự bịa ra thông tin."
     },
     "q4": {
-      "t": "Ai được dùng, và quyền truy cập được quản lý thế nào?",
-      "a": "Mọi người mà bạn kết nối vào hệ thống. Quyền theo từng người — thêm chỗ ngồi được báo giá riêng."
+      "t": "Chúng tôi có thể sử dụng tài trợ chính phủ cho việc này không?",
+      "a": "Nhiều doanh nghiệp Việt Nam đủ điều kiện nhận tài trợ chuyển đổi số (như chương trình DXCenter của TP.HCM). Chúng tôi có thể hướng dẫn bạn quy trình nộp đơn, nhưng việc phê duyệt và số tiền tài trợ cuối cùng do chính phủ quyết định, không phải chúng tôi."
     },
     "q5": {
-      "t": "Tài liệu phải bằng ngôn ngữ nào?",
-      "a": "Tiếng Việt, Anh và Nga ngay từ đầu — OCR tinh chỉnh cho dấu tiếng Việt, con dấu và chữ ký. Ngôn ngữ khác theo yêu cầu."
+      "t": "Hệ thống có xác thực chữ ký số không?",
+      "a": "Có. KINESIS được thiết kế đặc biệt để phát hiện và đọc chữ ký số chính thức trên các tài liệu hành chính và thương mại của Việt Nam (điều mà nhiều hệ thống CNTT tiêu chuẩn không làm được), cũng như nhận diện con dấu công ty trên giấy tờ scan."
     }
   },
   "about": {
     "eyebrow": "Về KINESIS",
-    "title": "Một kỹ sư. Một sản phẩm. Không tầng trung gian.",
-    "p1": "KINESIS là công ty IT (CÔNG TY TNHH KINESIS) do Andrey Panfilov sáng lập và tự tay xây dựng, trụ sở tại TP. Hồ Chí Minh — tập trung vào trí tuệ tài liệu cục bộ, phát triển phần mềm riêng và tư vấn IT.",
-    "p2": "Không đội bán hàng, không tầng quản lý giữa bạn với người viết phần mềm. Bạn nói thẳng với kỹ sư làm ra hệ thống — tôi làm việc đa ngôn ngữ (mặc định: Việt, Anh, Nga).",
+    "title": "Kỹ thuật thực chiến, không chỉ là phần mềm.",
+    "p1": "KINESIS (CÔNG TY TNHH KINESIS) có trụ sở tại TP. Hồ Chí Minh. Được sáng lập bởi Andrey Panfilov, một nhà vật lý và kỹ sư hệ thống với 16 năm kinh nghiệm trong lĩnh vực điện toán hiệu suất cao và kiến trúc GPU. Chúng tôi xây dựng các hệ thống AI mạnh mẽ, lưu trữ nội bộ.",
+    "p2": "Chúng tôi xử lý toàn bộ hệ thống—từ việc viết phần mềm xử lý tài liệu tùy chỉnh đến việc tự lắp ráp máy trạm vật lý. Bạn sẽ làm việc trực tiếp với kỹ sư xây dựng hệ thống của bạn.",
     "f1": {
-      "k": "Trụ sở",
+      "k": "Trụ sở chính",
       "v": "TP. Hồ Chí Minh, Việt Nam"
     },
     "f2": {
-      "k": "Ngôn ngữ hệ thống (mặc định)",
-      "v": "Việt · Anh · Nga — ngôn ngữ khác theo yêu cầu"
+      "k": "Ngôn ngữ hệ thống",
+      "v": "Tiếng Việt & Tiếng Anh (Nội dung tài liệu được giữ nguyên ngôn ngữ gốc)"
     },
     "f3": {
       "k": "Sản phẩm chủ lực",
-      "v": "KINESIS RAG (chạy trên máy khách hàng)"
+      "v": "KINESIS AI (On-Premise Document RAG)"
     },
     "f4": {
       "k": "Liên hệ",
@@ -203,34 +203,34 @@
   },
   "contact": {
     "eyebrow": "Liên hệ",
-    "title": "Nhận báo giá",
-    "lead": "Kể ngắn về tài liệu của bạn — loại file, số lượng, phần cứng. Chúng tôi phản hồi bằng kế hoạch và báo giá.",
-    "priceline": "Cách tính giá: giá cơ bản cố định + phí bảo trì hằng tháng · chỗ người dùng thêm và module Second Brain tính riêng · kho trên 10.000 tài liệu chuyển sang gói cao hơn.",
+    "title": "Yêu cầu Tư vấn",
+    "lead": "Cho chúng tôi biết sơ lược về tài liệu và thiết lập văn phòng của bạn. Chúng tôi sẽ phản hồi với kế hoạch phần mềm tùy chỉnh, thông số phần cứng và báo giá chính thức.",
+    "priceline": "Chi phí phần mềm bắt đầu từ 200.000.000 VNĐ. Phần cứng tùy chỉnh là một ngân sách riêng. Hãy hỏi chúng tôi về các khoản tài trợ chuyển đổi số của nhà nước có thể chi trả một phần chi phí ban đầu của bạn.",
     "form": {
-      "name": "Họ tên",
+      "name": "Họ và tên",
       "company": "Công ty",
-      "email": "Email hoặc điện thoại",
-      "message": "Nội dung",
-      "submit": "Gửi yêu cầu báo giá",
+      "email": "Email hoặc số điện thoại",
+      "message": "Tin nhắn",
+      "submit": "Yêu cầu Tư vấn",
       "phName": "Nguyễn Văn A",
-      "phCompany": "Công ty TNHH …",
+      "phCompany": "Công ty ABC …",
       "phEmail": "ban@congty.vn",
-      "phMessage": "Loại tài liệu, số lượng, phần cứng…",
-      "success": "Cảm ơn! Yêu cầu của bạn đã được gửi. Chúng tôi sẽ phản hồi trong giờ hành chính.",
-      "error": "Không gửi được. Vui lòng liên hệ trực tiếp: kinesiscomp@gmail.com"
+      "phMessage": "Các loại tệp bạn có? Khoảng bao nhiêu tệp?",
+      "success": "Cảm ơn bạn! Yêu cầu đã được gửi đi — chúng tôi sẽ phản hồi trong giờ làm việc.",
+      "error": "Không thể gửi. Vui lòng liên hệ trực tiếp: kinesiscomp@gmail.com"
     },
     "direct": {
       "title": "Hoặc liên hệ trực tiếp",
       "emailLabel": "Email",
       "phoneLabel": "Điện thoại / Zalo",
       "telegramLabel": "Telegram",
-      "note": "Chúng tôi phản hồi trong vòng 1 ngày làm việc (giờ Việt Nam)."
+      "note": "Chúng tôi phản hồi trong vòng một ngày làm việc (giờ Việt Nam)."
     },
     "qr": {
-      "title": "Hoặc quét mã để chat",
+      "title": "Hoặc quét mã để trò chuyện",
       "zalo": "Zalo",
       "telegram": "Telegram",
-      "note": "Đưa camera điện thoại vào mã — chat mở ngay.",
+      "note": "Hướng camera điện thoại vào mã — cuộc trò chuyện sẽ mở ra ngay lập tức.",
       "zaloLink": "https://zalo.me/84374514377",
       "zaloSrc": "assets/zalo-qr.png",
       "telegramLink": "https://t.me/+84374514377",
@@ -238,7 +238,7 @@
     }
   },
   "footer": {
-    "legal": "CÔNG TY TNHH KINESIS · MST 0317474288 · Số 3, Nguyễn Cơ Thạch, An Khánh, TP. Hồ Chí Minh",
-    "rights": "© 2026 KINESIS. Tất cả quyền được bảo lưu."
+    "legal": "CÔNG TY TNHH KINESIS · Mã số thuế 0317474288 · Số 3, Nguyễn Cơ Thạch, Phường An Khánh, TP. Hồ Chí Minh",
+    "rights": "© 2026 KINESIS. Bảo lưu mọi quyền."
   }
 }
