@@ -53,28 +53,28 @@
     "title": "Enterprise-grade intelligence for your document archive",
     "lead": "Turn thousands of scattered PDFs, scans, and Excel files into a single, highly secure knowledge base.",
     "f1": {
-      "title": "Absolute Privacy (No Cloud)",
-      "text": "KINESIS AI runs on a dedicated workstation in your office. No internet connection required. Nobody can read your files—not the cloud, not hackers, and not even us."
+      "title": "Absolute Privacy & Malware Defense",
+      "text": "KINESIS runs on a dedicated workstation in your office with no internet connection required. We also validate PDF structures before processing to block malicious files and exploits—keeping your network completely safe."
     },
     "f2": {
       "title": "Reads the Unreadable",
-      "text": "Blurry scans? Upside-down pages? Complex accounting tables that other software turns into garbage? Our custom-built engine perfectly reads Vietnamese text, stamps, handwritten signatures, and messy tables."
+      "text": "Blurry scans? Upside-down pages? Complex accounting tables that other software turns into garbage? Our custom engine perfectly reads Vietnamese text, company stamps, digital signatures, and messy tables."
     },
     "f3": {
       "title": "Cited Answers, Zero Guessing",
       "text": "Every answer points to the exact file and page. If the information isn't in your documents, the system explicitly says 'I don't know'—it never invents facts."
     },
     "f4": {
-      "title": "Custom Engineered, Not Wrapped",
-      "text": "This is not a cheap script wrapped around ChatGPT. KINESIS is built from the ground up for stability, utilizing custom AI memory management to ensure the system never crashes or freezes under heavy loads."
+      "title": "True Full-Document Context",
+      "text": "Unlike basic AI tools that only read the first page, KINESIS reads and summarizes the entire document, even if it's hundreds of pages long. You get a complete, accurate understanding of every file in your archive."
     },
     "f5": {
       "title": "Dual-Lingual Core (VN & EN)",
       "text": "Interact with the system natively in Vietnamese or English. If your archive contains documents in other languages (like Russian), KINESIS preserves the original text perfectly for retrieval while communicating with you in VN or EN."
     },
     "f6": {
-      "title": "Always Up to Date",
-      "text": "Add new files, delete old ones, or change folders. The system automatically detects changes and updates the database in the background, usually while you sleep."
+      "title": "Custom Engineered, Not Wrapped",
+      "text": "This is not a cheap script wrapped around ChatGPT. KINESIS is built from the ground up for stability, utilizing custom AI memory management to ensure the system never crashes or freezes under heavy loads."
     }
   },
   "how": {
@@ -175,8 +175,8 @@
       "a": "The Vietnamese government actively supports digital transformation and AI integration for SMBs. We can guide you on how to apply for the subsidy, which can cover a significant portion of the initial setup cost."
     },
     "q5": {
-      "t": "Which languages does the system support?",
-      "a": "The core system operates natively in Vietnamese and English. If you have documents in other languages, the system preserves the original text perfectly for retrieval, while communicating with you in VN or EN."
+      "t": "Does it verify digital signatures?",
+      "a": "Yes. KINESIS is specifically engineered to detect and read official digital signatures on Vietnamese government and commercial documents (which many standard IT systems fail to verify), as well as recognizing company stamps on scanned papers."
     }
   },
   "about": {
