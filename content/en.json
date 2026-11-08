@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "KINESIS — On-Premise AI for Business Documents in Vietnam",
-    "description": "KINESIS runs 100% on your hardware: reads, classifies and answers with citations from contracts, invoices and reports. Data never leaves the office. Ho Chi Minh City."
+    "title": "KINESIS AI — Enterprise-Grade Private AI for Business",
+    "description": "KINESIS AI runs 100% on your office hardware: reads, classifies and answers with citations from contracts, invoices and reports. Data never leaves the building."
   },
   "a11y": {
     "skip": "Skip to content",
@@ -15,186 +15,186 @@
     "for": "Who it's for",
     "about": "About",
     "contact": "Contact",
-    "cta": "Get a quote"
+    "cta": "Request a Consultation"
   },
   "hero": {
-    "eyebrow": "Private document intelligence — 100% on your hardware",
-    "titleA": "Ask anything about your documents.",
+    "eyebrow": "KINESIS AI — 100% Private & Local",
+    "titleA": "Ask anything about your business documents.",
     "titleAccent": "Get answers — with exact sources.",
-    "sub": "KINESIS runs entirely on your own hardware — it reads, classifies and answers from your contracts, invoices and reports, with every answer pointing to its exact source. Your documents never leave the building: sending private business data to online AI is not an option for Vietnamese businesses.",
-    "ctaPrimary": "Get a quote",
-    "ctaSecondary": "How it works",
-    "badge1": "100% on-premise — no cloud",
-    "badge2": "VN · EN · RU by default",
-    "badge3": "Built in Ho Chi Minh City"
+    "sub": "KINESIS AI runs entirely on a secure, custom-built server inside your office. It reads, sorts, and answers questions from your contracts, invoices, and reports—with every answer pointing to the exact source. Stop uploading sensitive company data to public AI. Your documents never leave the building.",
+    "ctaPrimary": "Request a Consultation",
+    "ctaSecondary": "Watch demo",
+    "badge1": "100% On-Premise",
+    "badge2": "Native VN & EN Support",
+    "badge3": "Up to 50% Gov. Subsidy eligible"
   },
   "demo": {
-    "label": "Sample question — demo",
+    "label": "Sample question — live demo",
     "qa": [
       {
-        "q": "Was the contract with Truong Son Trading signed? What's the value?",
-        "a": "Signed (digital signature). Contract value: 2.4 billion VND, 24-month term.",
+        "q": "Did we pay the January electricity invoice for the Saigon office?",
+        "a": "Yes. Outbound payment of 14,500,000 VND was recorded on January 12th. The receipt is attached.",
+        "cite": "Invoice_Jan2026.xlsx · row 42"
+      },
+      {
+        "q": "What are the termination terms for the HR labor contract?",
+        "a": "Requires 45 days written notice. Severance pay is calculated at 1 month salary per year of service.",
+        "cite": "Hopdong_LaoDong_2025.pdf · p. 4"
+      },
+      {
+        "q": "Find the clause about late payment penalties in the Truong Son contract.",
+        "a": "A penalty of 0.05% per day applies to overdue payments, not exceeding 8% of the total contract value.",
         "cite": "Hopdong_TrangSon_2026.pdf · p. 2"
-      },
-      {
-        "q": "What's the total of August outbound invoices?",
-        "a": "14 outbound invoices totalling 1.18 billion VND. Line-by-line detail available.",
-        "cite": "Invoice_2026-08.xlsx · rows 1–14"
-      },
-      {
-        "q": "Which version of the social insurance policy is in effect?",
-        "a": "Policy v3.1, issued 01/07/2026, signed. Version 3.0 is superseded.",
-        "cite": "CS_BHXH_v3.1.pdf · p. 1"
       }
     ]
   },
   "product": {
-    "eyebrow": "Product",
-    "title": "A brain for your document archive",
-    "lead": "A fully local private document intelligence system that turns thousands of loose files into a knowledge base you can question.",
+    "eyebrow": "The Solution",
+    "title": "Enterprise-grade intelligence for your document archive",
+    "lead": "Turn thousands of scattered PDFs, scans, and Excel files into a single, highly secure knowledge base.",
     "f1": {
-      "title": "Your data stays put",
-      "text": "Runs 100% on your own hardware. No cloud, no external APIs — nobody reads your files. Not even us."
+      "title": "Absolute Privacy (No Cloud)",
+      "text": "KINESIS AI runs on a dedicated workstation in your office. No internet connection required. Nobody can read your files—not the cloud, not hackers, and not even us."
     },
     "f2": {
-      "title": "Every format",
-      "text": "PDF (scanned or text), DOC/DOCX, RTF, TXT, PPT/PPTX, Excel, ZIP/RAR archives and images (JPG, PNG, TIFF…) — 10,000+ documents. New and changed files are picked up and indexed automatically."
+      "title": "Reads the Unreadable",
+      "text": "Blurry scans? Upside-down pages? Complex accounting tables that other software turns into garbage? Our custom-built engine perfectly reads Vietnamese text, stamps, handwritten signatures, and messy tables."
     },
     "f3": {
-      "title": "Truly understands Vietnamese",
-      "text": "OCR tuned for Vietnamese text: diacritics, company stamps and handwritten signatures are detected and recorded (“signed” status). Complex tables are reconstructed cell by cell and re-read with OCR — even tables that break commercial engines."
+      "title": "Cited Answers, Zero Guessing",
+      "text": "Every answer points to the exact file and page. If the information isn't in your documents, the system explicitly says 'I don't know'—it never invents facts."
     },
     "f4": {
-      "title": "Cited answers",
-      "text": "Every answer points to the exact file and location — auditable and verifiable; nobody has to take your word for it. And if the answer isn't in your documents, KINESIS says exactly that — it never invents one."
+      "title": "Custom Engineered, Not Wrapped",
+      "text": "This is not a cheap script wrapped around ChatGPT. KINESIS is built from the ground up for stability, utilizing custom AI memory management to ensure the system never crashes or freezes under heavy loads."
     },
     "f5": {
-      "title": "Self-classifying archive",
-      "text": "Each document is classified (contract, invoice, report…) with value, dates, parties and signature status — filter, don't just search. Duplicate files are detected automatically: if you delete the original, the next run restores it from its copy; data for deleted files can be purged from the database on request."
+      "title": "Dual-Lingual Core (VN & EN)",
+      "text": "Interact with the system natively in Vietnamese or English. If your archive contains documents in other languages (like Russian), KINESIS preserves the original text perfectly for retrieval while communicating with you in VN or EN."
     },
     "f6": {
-      "title": "Ask in your language",
-      "text": "Query in Vietnamese, English or Russian — retrieval stays native to the document's language, no translation step."
+      "title": "Always Up to Date",
+      "text": "Add new files, delete old ones, or change folders. The system automatically detects changes and updates the database in the background, usually while you sleep."
     }
   },
   "how": {
-    "eyebrow": "Process",
-    "title": "Four steps, one answer",
-    "lead": "From a chaotic folder of files to a precise, cited answer — all running locally.",
+    "eyebrow": "The Process",
+    "title": "A turnkey appliance. Live in 1-2 days.",
+    "lead": "We handle the hardware engineering, the software deployment, and the setup. You just ask the questions.",
     "s1": {
-      "title": "Ingest",
-      "text": "Scans your folders and reads every format; OCR handles blurry, skewed scans, corrupted files and complex tables."
+      "title": "1. We Engineer the Hardware",
+      "text": "You don't buy a random PC. We custom-build and assemble a high-performance, quiet AI workstation, install it in your office, and configure the local network."
     },
     "s2": {
-      "title": "Organize",
-      "text": "Each file is classified and stripped of metadata — value, dates, parties — summarized bilingually (VN/EN) and stored with structure."
+      "title": "2. Connect Your Folders",
+      "text": "Point KINESIS AI to your document folders. The system will scan, read, and classify everything automatically overnight."
     },
     "s3": {
-      "title": "Ask",
-      "text": "KINESIS understands what you're actually asking about — which documents, which period, which conditions — and searches all of them at once."
+      "title": "3. Ask Questions",
+      "text": "Type a normal question. The AI instantly filters through thousands of files, finding the exact clauses, invoices, or data you need."
     },
     "s4": {
-      "title": "Answer",
-      "text": "One precise answer with file citations — in seconds."
+      "title": "4. Get Cited Answers",
+      "text": "Receive a precise answer in seconds, with a citation linking directly to the original file."
     },
     "hw": {
-      "title": "What you need to start",
+      "title": "Investment & Government Subsidy",
       "f1": {
-        "k": "Minimum hardware",
-        "v": "One workstation in your office — RTX 3090 with 64GB RAM is the minimum we recommend. Bigger archives or a faster first read = more GPUs."
+        "k": "Initial Setup (Software + Custom Hardware)",
+        "v": "Starting at $8,000 - $10,000 USD. This includes the custom-built AI server, software installation, and initial indexing. Pricing scales with your specific document volume."
       },
       "f2": {
-        "k": "First run",
-        "v": "About 1,000 documents (scans included) are fully read overnight on standard hardware. Larger archives take proportionally longer — you get the estimate before we start."
+        "k": "Monthly Maintenance",
+        "v": "From $200 - $500 USD/month for system monitoring, priority updates, and technical support."
       },
       "f3": {
-        "k": "Live in 1–2 days",
-        "v": "Setup, loading and tuning — counted from the day your files are handed over."
+        "k": "Government Support",
+        "v": "Vietnamese businesses can receive up to 50% compensation for AI integration costs from the government. We provide guidance on the application process."
       }
     }
   },
   "sb": {
-    "eyebrow": "Beyond the archive",
+    "eyebrow": "Coming Soon",
     "title": "Going beyond the document archive",
-    "badge": "In progress",
+    "badge": "In Development",
     "module": {
-      "title": "Second Brain — your second memory",
-      "text": "A personal knowledge layer on top of RAG: links your notes, decisions and follow-ups to the exact source documents. In development — early clients get priority."
+      "title": "Second Brain — Your Company's Memory",
+      "text": "An optional knowledge layer that links your team's notes, decisions, and follow-ups directly to the source documents. Early clients get priority access."
     },
     "ft": {
-      "badge": "On request",
-      "title": "Custom model fine-tuning",
-      "text": "If the standard setup isn't enough, we fine-tune models for your specific workflows — proprietary formats, industry terminology. Quoted per project."
+      "badge": "Custom",
+      "title": "Custom Model Fine-Tuning",
+      "text": "If your industry uses highly specific proprietary terminology, we can fine-tune the AI models specifically for your workflows."
     }
   },
   "for": {
     "eyebrow": "Who it's for",
-    "title": "Where documents are the job",
+    "title": "Built for businesses that run on paperwork",
     "i1": {
-      "name": "Law firms",
-      "line": "Find the clause across 400 old contracts — before someone asks you about it."
+      "name": "Law Firms",
+      "line": "Find a specific clause across 400 old contracts in 3 seconds—before the client hangs up the phone."
     },
     "i2": {
-      "name": "Accounting firms",
-      "line": "Reconcile invoices, debts and statements across periods — without opening a single file."
+      "name": "Accounting",
+      "line": "Reconcile invoices, debts, and statements across years without opening a single Excel file."
     },
     "i3": {
-      "name": "HR departments",
-      "line": "Labor contracts, policies, payrolls — retrieve the exact version currently in force."
+      "name": "HR Departments",
+      "line": "Retrieve the exact, currently-in-force version of labor contracts and company policies instantly."
     },
     "i4": {
       "name": "Logistics",
-      "line": "Certs of origin, waybills, declarations — look up by shipment, partner or date, in seconds."
+      "line": "Look up certificates of origin, waybills, and customs declarations by shipment, partner, or date."
     },
     "i5": {
-      "name": "Ad agencies & studios",
-      "line": "Photo libraries, campaign decks, client briefs — find the exact asset or reference for a project on the fly."
+      "name": "Agencies & Studios",
+      "line": "Manage massive photo libraries, campaign decks, and client briefs—find the exact asset on the fly."
     },
     "i6": {
-      "name": "Any document-heavy business",
-      "line": "If your team lives in PDF folders, KINESIS is the company's shared brain."
+      "name": "Any Document-Heavy Business",
+      "line": "If your team loses hours digging through PDF folders, KINESIS is the company's shared brain."
     }
   },
   "faq": {
     "eyebrow": "FAQ",
-    "title": "Questions you'd ask anyway",
+    "title": "Common Questions",
     "q1": {
-      "t": "What hardware do I need?",
-      "a": "From one workstation in your office: an RTX 3090 with 64GB RAM is the minimum we recommend. More volume or a faster first read needs more GPUs/VRAM — we size it to your archive in the quote."
+      "t": "Do I need to buy the hardware myself?",
+      "a": "No. With a background in high-performance computing and 16 years of experience building workstation-grade systems, our founder will source, assemble, and install the AI server directly in your office. You get a perfectly optimized, turnkey appliance."
     },
     "q2": {
       "t": "How long until it's live?",
-      "a": "One to two days including setup. Roughly 1,000 documents (scans included) are fully read overnight on standard hardware; larger archives take proportionally longer."
+      "a": "Physical setup takes 1–2 days. The AI will then read and index your historical files overnight (about 1,000 documents per night). Daily updates happen automatically in the background."
     },
     "q3": {
       "t": "What if the answer isn't in my documents?",
-      "a": "KINESIS tells you the archive has no such information — it never invents an answer. No source, no claim."
+      "a": "KINESIS AI is programmed to be strictly factual. If the data doesn't exist in your archive, it will explicitly tell you it doesn't know. It never makes things up."
     },
     "q4": {
-      "t": "Who can use it, and how is access controlled?",
-      "a": "Everyone you connect to the system. Access is per person — extra seats are priced separately in the quote."
+      "t": "How does the 50% government subsidy work?",
+      "a": "The Vietnamese government actively supports digital transformation and AI integration for SMBs. We can guide you on how to apply for the subsidy, which can cover a significant portion of the initial setup cost."
     },
     "q5": {
-      "t": "Which languages do the documents have to be in?",
-      "a": "Vietnamese, English and Russian out of the box — the OCR is tuned for Vietnamese diacritics, stamps and signatures. Other languages on request."
+      "t": "Which languages does the system support?",
+      "a": "The core system operates natively in Vietnamese and English. If you have documents in other languages, the system preserves the original text perfectly for retrieval, while communicating with you in VN or EN."
     }
   },
   "about": {
     "eyebrow": "About KINESIS",
-    "title": "One engineer. One product. No middle layer.",
-    "p1": "KINESIS is an IT company (CÔNG TY TNHH KINESIS) founded and built hands-on by Andrey Panfilov, based in Ho Chi Minh City — focused on local document intelligence, custom software development and IT consulting.",
-    "p2": "No sales team, no management layer between you and the person writing the software. You talk directly to the engineer who builds the system — I work in multiple languages (default: Vietnamese, English, Russian).",
+    "title": "Hardcore engineering, not just software.",
+    "p1": "KINESIS (CÔNG TY TNHH KINESIS) is based in Ho Chi Minh City. Founded by Andrey Panfilov, a physicist and systems engineer with 16 years of experience in high-performance computing, mathematical modeling (FDTD), and GPU architecture. We build robust, locally hosted AI systems.",
+    "p2": "While many agencies just connect APIs and hope for the best, we engineer the entire stack—from the custom document-processing algorithms to the hardware itself. You talk directly to the engineer who builds your system.",
     "f1": {
       "k": "Headquarters",
       "v": "Ho Chi Minh City, Vietnam"
     },
     "f2": {
-      "k": "System languages (default)",
-      "v": "Vietnamese · English · Russian — other languages on request"
+      "k": "System Languages",
+      "v": "Vietnamese & English (Document content preserved in original language)"
     },
     "f3": {
-      "k": "Flagship product",
-      "v": "KINESIS RAG (runs on client hardware)"
+      "k": "Flagship Product",
+      "v": "KINESIS AI (On-Premise Document RAG)"
     },
     "f4": {
       "k": "Contact",
@@ -203,19 +203,19 @@
   },
   "contact": {
     "eyebrow": "Contact",
-    "title": "Get a quote",
-    "lead": "Tell us briefly about your documents — file types, scale, hardware. We reply with a plan and a quote.",
-    "priceline": "How it's priced: fixed base price + monthly maintenance · extra seats and the Second Brain module are priced separately · archives over 10,000 documents move to a higher tier.",
+    "title": "Request a Consultation",
+    "lead": "Tell us briefly about your documents and your office setup. We'll reply with a custom plan, hardware specs, and an official quote.",
+    "priceline": "Investment starts at $8,000 for the turnkey system. Hardware is engineered specifically for your volume. Ask us about the 50% Vietnamese AI subsidy to reduce your initial cost.",
     "form": {
       "name": "Full name",
       "company": "Company",
       "email": "Email or phone",
       "message": "Message",
-      "submit": "Request a quote",
+      "submit": "Request a Consultation",
       "phName": "Jane Smith",
       "phCompany": "ABC Company …",
       "phEmail": "you@company.vn",
-      "phMessage": "Document types, volume, hardware…",
+      "phMessage": "What types of files do you have? Roughly how many?",
       "success": "Thank you! Your request is in — we'll get back to you during business hours.",
       "error": "Couldn't send it. Please contact us directly: kinesiscomp@gmail.com"
     },
