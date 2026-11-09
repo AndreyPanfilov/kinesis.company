@@ -1,7 +1,7 @@
 /* KINESIS — site logic
    - i18n from content/{lang}.json (vi | en | ru)
    - hero demo typewriter (JSON-driven, respects reduced motion)
-   - scroll reveals, mobile nav, quote form (Formspree or mailto fallback)
+   - scroll reveals, mobile nav, quote form (FormSubmit AJAX)
 */
 (function () {
   "use strict";
@@ -9,7 +9,7 @@
   var LANGS = ["vi", "en", "ru"];
   var STORAGE_KEY = "kinesis_lang";
   var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var currentDict = null; // <--- ADD THIS LINE
+  var currentDict = null; // Global dictionary to track current language
 
   /* ---------- i18n ---------- */
 
@@ -36,9 +36,6 @@
   }
 
   function loadContent(lang) {
-    // Root pages (/, /index.html) → relative ./content. The /en/ and /ru/ shells sit
-    // one level down, so ../content works for BOTH deployments: a custom domain at the
-    // site root (kinesiscomp.com/en/) and a GitHub project page (user.github.io/repo/en/).
     var p = window.location.pathname;
     var inSubdir = /\/(en|ru)(\/|$)/.test(p);
     var bases = inSubdir ? ["../content", "./content", "/content"] : ["./content", "/content"];
@@ -66,9 +63,6 @@
       var v = map[el.getAttribute("data-i18n-aria")];
       if (typeof v === "string") el.setAttribute("aria-label", v);
     });
-    // Links and image sources (QR codes etc.) come from the content JSON so they
-    // can be changed without touching the HTML. Image paths are written relative
-    // to the site root ("assets/..."); /en/ and /ru/ shells sit one level deeper.
     var inSub = /\/(en|ru)(\/|$)/.test(window.location.pathname);
     document.querySelectorAll("[data-i18n-href]").forEach(function (el) {
       var v = map[el.getAttribute("data-i18n-href")];
@@ -167,7 +161,6 @@
           i += 1;
         }
       }
-
       cycle.call(this);
     }
   };
@@ -189,7 +182,6 @@
       });
     }, { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });
 
-    // Fallback: elements scrolled past (e.g. End-key / fast jump) must not stay hidden.
     var ticking = false;
     function checkPassed() {
       ticking = false;
@@ -228,21 +220,21 @@
     });
   }
 
-  /* ---------- Quote form ---------- */
+  /* ---------- Quote form (FormSubmit AJAX) ---------- */
 
-    function initForm() {
+  function initForm() {
     var form = document.getElementById("quote-form");
     var status = document.getElementById("form-status");
     if (!form || !status) return;
     
-    // Prevent attaching the submit listener multiple times
     if (form.hasAttribute('data-listener-attached')) return;
     form.setAttribute('data-listener-attached', 'true');
 
     form.addEventListener("submit", function (e) {
       var t = (currentDict && currentDict.contact && currentDict.contact.form) || {};
       
-      e.preventDefault();
+      e.preventDefault(); 
+      
       if (!form.checkValidity()) { form.reportValidity(); return; }
 
       var gotcha = form.querySelector('[name="_gotcha"]');
@@ -256,6 +248,7 @@
       var action = form.getAttribute("action") || "";
       status.textContent = "";
       status.className = "form-status";
+      
       var btn = form.querySelector(".btn-submit");
       if (btn) btn.disabled = true;
 
@@ -276,8 +269,7 @@
           (t.message ? t.message : "Message") + ":",
           String(fd.get("message") || "")
         ];
-        window.location.href =
-          "mailto:kinesiscomp@gmail.com?subject=" + subject + "&body=" + encodeURIComponent(bodyLines.join("\n"));
+        window.location.href = "mailto:kinesiscomp@gmail.com?subject=" + subject + "&body=" + encodeURIComponent(bodyLines.join("\n"));
         done(true, t.success || "Sent.");
         return;
       }
@@ -287,7 +279,9 @@
           if (!r.ok) throw new Error("HTTP " + r.status);
           done(true, t.success || "Sent.");
         })
-        .catch(function () { done(false, t.error || "Error."); });
+        .catch(function () { 
+          done(false, t.error || "Error sending message."); 
+        });
     });
   }
 
@@ -319,16 +313,13 @@
       };
     }
 
-    var traces = []; // { el, len }
-    var padNodes = []; // hexagon centers [x, y, kind, size, solid]
+    var traces = []; 
+    var padNodes = []; 
     var pulseState = null;
     var rafId = null, lastTs = 0, resizeT = null;
 
     function build(cfg) {
       var rnd = mulberry32(cfg.seed || 1);
-      // Parallax: the canvas is taller than the viewport and is pushed down on scroll,
-      // so it travels with the page but at `scrollSpeed` fraction of the page speed
-      // (0 = fixed like before, 1 = scrolls exactly with the content).
       var V = Math.ceil(window.innerHeight);
       var pageH = Math.max(document.documentElement.scrollHeight, V * 3);
       var speed = Math.min(1, Math.max(0, cfg.scrollSpeed != null ? cfg.scrollSpeed : 0.35));
@@ -346,7 +337,6 @@
       var step = cfg.gridStep || 44;
       var cols = Math.ceil(W / step), rows = Math.ceil(H / step);
       function pickWeighted() {
-        // thin / medium / thick with weights 0.55 / 0.3 / 0.15
         var r = rnd(), ws = (cfg.lineWidths || [1]);
         if (ws.length === 1) return ws[0];
         var c = 0.55; if (r < c) return ws[0]; c += 0.3; if (r < c) return ws[1];
@@ -356,22 +346,17 @@
       var bt = buildTraces();
       traces = bt.traces;
       padNodes = bt.pads;
-      // one "opacity" control for the whole background layer (all lines + all hexagons)
       var bgEl = document.querySelector(".bg");
       if (bgEl) bgEl.style.opacity = String(cfg.opacity != null ? cfg.opacity : 0.9);
+      
       function buildTraces() {
-        // Free-coordinate PCB routing (no grid snapping), top -> bottom flow.
-        // Strict no-intersection: every backbone owns an x-corridor between the
-        // midpoints of its neighbours; excursions, branches, detours and stubs
-        // stay inside their corridor, so lines can never cross — they only run
-        // parallel at a random gap. Clearances always leave breathing room.
         var rnd2 = mulberry32((cfg.seed || 1) + 7919);
         var out = [];
         var segs = [];
         var hexPts = [];
-        var hexOcc = []; // angles of the lines already connected to each hexagon
+        var hexOcc = [];
         var CW = W, CH = H;
-        var minGap = 4; // px of space always kept between any two lines
+        var minGap = 4;
 
         function ptSegDist(px, py, ax, ay, bx, by) {
           var vx = bx - ax, vy = by - ay, wx = px - ax, wy = py - ay;
@@ -402,12 +387,10 @@
         function clearOf(x1, y1, x2, y2, wSelf, crossP, skipOwn, relaxed, anchor) {
           for (var i = 0; i < segs.length; i++) {
             var s = segs[i];
-            if (skipOwn != null && s[5] === skipOwn) continue; // siblings of the same hexagon may hug their anchor
+            if (skipOwn != null && s[5] === skipOwn) continue; 
             if (segsCross(x1, y1, x2, y2, s[0], s[1], s[2], s[3])) {
-              // true crossing: very thin lines may cross thick ones sometimes (layered PCB look)
               var thinCross = (wSelf <= 2.1 && s[4] >= 3.5) || (s[4] <= 2.1 && wSelf >= 3.5);
               if (thinCross && rnd2() < (crossP != null ? crossP : 0.2)) continue;
-              // tucked: a crossing that happens under the hexagon fill is invisible — allow it
               if (relaxed && wSelf <= 2.1 && anchor) {
                 var r1x = x2 - x1, r1y = y2 - y1, r2x = s[2] - s[0], r2y = s[3] - s[1];
                 var den = r1x * r2y - r1y * r2x;
@@ -418,19 +401,14 @@
               }
               return false;
             }
-            // junctions allowed: a line may start/end ON another line (that is what branches are).
-            // only shared endpoints are skipped, everything else keeps full clearance.
             var g3 = Infinity;
             if (!(isTouch(x1, y1, s[0], s[1]) || isTouch(x1, y1, s[2], s[3]))) g3 = Math.min(g3, ptSegDist(x1, y1, s[0], s[1], s[2], s[3]));
             if (!(isTouch(x2, y2, s[0], s[1]) || isTouch(x2, y2, s[2], s[3]))) g3 = Math.min(g3, ptSegDist(x2, y2, s[0], s[1], s[2], s[3]));
             if (!(isTouch(s[0], s[1], x1, y1) || isTouch(s[0], s[1], x2, y2))) g3 = Math.min(g3, ptSegDist(s[0], s[1], x1, y1, x2, y2));
             if (!(isTouch(s[2], s[3], x1, y1) || isTouch(s[2], s[3], x2, y2))) g3 = Math.min(g3, ptSegDist(s[2], s[3], x1, y1, x2, y2));
             if (g3 < (wSelf + s[4]) / 2 + minGap) {
-              // thin decorative traces may run close to other lines when the field is busy
               var nearMiss = g3 >= (wSelf + s[4]) / 2 - 0.5;
               if (nearMiss && wSelf <= 2.1 && crossP != null && rnd2() < crossP) continue;
-              // tucked fallback: no crossings, but the tip may nestle between lines with room for
-              // its dot; geometry that sits under the hexagon fill needs no clearance at all
               if (relaxed && wSelf <= 2.1) {
                 var mx = (x1 + x2) / 2, my = (y1 + y2) / 2;
                 if (anchor && Math.hypot(mx - anchor[0], my - anchor[1]) <= 12) continue;
@@ -445,7 +423,6 @@
           for (var i = 0; i < pts.length - 1; i++) segs.push([pts[i][0], pts[i][1], pts[i + 1][0], pts[i + 1][1], w, own != null ? own : -1]);
         }
 
-        // ---- backbone plan: sparse on the left, dense on the right ----
         var back = [];
         function planRegion(x0, x1, n, longBias) {
           for (var i = 0; i < n; i++) {
@@ -455,12 +432,11 @@
           }
         }
         var nTot = Math.max(9, Math.min(44, Math.round((cfg.traceCount || 64) * 0.35)));
-        if (CW < 620) nTot = Math.max(7, Math.round(nTot * 0.5)); // mobile: much less clutter
+        if (CW < 620) nTot = Math.max(7, Math.round(nTot * 0.5)); 
         planRegion(18, CW * 0.34, Math.max(2, Math.round(nTot * 0.2)), 0.25);
         planRegion(CW * 0.34, CW * 0.60, Math.max(2, Math.round(nTot * 0.28)), 0.6);
         planRegion(CW * 0.60, CW - 18, Math.max(3, Math.round(nTot * 0.52)), 0.55);
         back.sort(function (a, b) { return a.x - b.x; });
-        // corridors: each backbone may wander between the midpoints to its neighbours
         for (var ci = 0; ci < back.length; ci++) {
           var xl = ci > 0 ? back[ci - 1].x : 8;
           var xr = ci < back.length - 1 ? back[ci + 1].x : CW - 8;
@@ -484,12 +460,10 @@
             while (y < yE - 120) {
               var yTurn = Math.min(yE - 40, y + 50 + rnd2() * 280);
               if (rnd2() < 0.95 && B.xMax - B.xMin > 26) {
-                // momentum: often continue the same way (longer lateral runs) instead of mirroring
                 var dir = lastDirB !== 0 ? (rnd2() < 0.45 ? lastDirB : -lastDirB) : (rnd2() < 0.5 ? -1 : 1);
                 var room = dir > 0 ? B.xMax - x : x - B.xMin;
                 var didZ = false;
                 if (room >= 46 && rnd2() < 0.35) {
-                  // long Z: two LONG 45° segments out and back — long runs after a turn (reference style)
                   var L1 = Math.min(room - 4, 40 + rnd2() * 80);
                   if (L1 >= 30) {
                     var xA = x + dir * L1, yA = yTurn + L1;
@@ -505,7 +479,7 @@
                 }
                 if (!didZ && room > 30) {
                   var L = 34 + rnd2() * (room - 24);
-                  if (rnd2() < 0.5 && L + 24 <= room) L += 16 + rnd2() * 30; // keep going left/right longer before turning down
+                  if (rnd2() < 0.5 && L + 24 <= room) L += 16 + rnd2() * 30; 
                   pts.push([x, yTurn]);
                   x += dir * L;
                   pts.push([x, yTurn + L]);
@@ -520,8 +494,6 @@
             reserve(pts, wL);
             out.push({ pts: pts, w: wL });
             backMeta.push({ B: B, pts: pts, w: wL });
-            // branches: long lines mostly, medium lines sometimes; NEVER on very thin lines;
-            // a branch is always thinner than its mother line
             var brW = Math.max(1.4, wL - 1);
             var brChance = B.longBias >= 0.55 && isLong ? 0.9 : 0.45;
             if (wL >= 3 && rnd2() < brChance && pts.length > 4) {
@@ -533,7 +505,6 @@
                 var roomB = dirB > 0 ? B.xMax - bx : bx - B.xMin;
                 if (roomB <= 24) continue;
                 if (rnd2() < 0.2) {
-                  // short upward stub, ends in a dot
                   var LBu = Math.min(roomB - 6, 20 + rnd2() * 40);
                   var yBUp = Math.max(-10, by - LBu - (60 + rnd2() * 120));
                   var upts = [[bx, by], [bx + dirB * LBu, by - LBu], [bx + dirB * LBu, yBUp]];
@@ -557,15 +528,14 @@
           })(back[bi]);
         }
 
-        // guarantee the total branch count (branchMin / branchMax) — add more here and there
         var brMin = cfg.branchMin != null ? cfg.branchMin : 6;
         var brMax = cfg.branchMax != null ? cfg.branchMax : 12;
         var brTarget = CW < 620 ? Math.max(2, Math.round((brMin + brMax) / 2 * 0.6)) : Math.round(brMin + rnd2() * (brMax - brMin));
         var guardB = 0;
         while (branchCount < brTarget && guardB++ < 90 && backMeta.length) {
           var mB = backMeta[Math.floor(rnd2() * backMeta.length)];
-          if (!mB.w || mB.w < 3 || mB.pts.length < 4) continue; // no branches on very thin main lines
-          var brW2 = Math.max(1.4, mB.w - 1); // thinner than the mother line
+          if (!mB.w || mB.w < 3 || mB.pts.length < 4) continue; 
+          var brW2 = Math.max(1.4, mB.w - 1); 
           var kB = 1 + Math.floor(rnd2() * (mB.pts.length - 2));
           var bxB = mB.pts[kB][0], byB = mB.pts[kB][1];
           var dirB2 = rnd2() < 0.5 ? -1 : 1;
@@ -581,8 +551,6 @@
           }
         }
 
-        // ---- hexagons: most sit on a backbone (the line connects),
-        //      a few are offset in the gap — a line reaches them and goes around
         var hexN = cfg.hexCount || 18;
         var baseHS = cfg.hexSize || 40;
         var hsR = baseHS * 0.78;
@@ -594,15 +562,12 @@
             var vk = 1 + Math.floor(rnd2() * (p0.length - 2));
             var px = p0[vk][0], py = p0[vk][1];
             if (py < 140 || py > CH - 180) continue;
-            // an around-hexagon only exists if its connecting line actually fits — retry,
-            // and if nothing fits it sits directly on the backbone (always connected)
             var placed = false;
             for (var at = 0; at < 6 && !placed; at++) {
               var dOff = rnd2() < 0.5 ? -1 : 1;
               var offX = Math.max(B0.xMin + hsR, Math.min(B0.xMax - hsR, px + dOff * (hsR + 22 + rnd2() * 34)));
               if (Math.abs(offX - px) < hsR) continue;
               var d2 = offX > px ? 1 : -1;
-              // comes down, one true 45-degree turn, ends exactly at the hexagon top vertex — always connected
               var ap = [
                 [offX + d2 * 40, py - 460],
                 [offX + d2 * 40, py - baseHS / 2 - 41],
@@ -613,7 +578,7 @@
               if (okAp) {
                 reserve(ap, 2); out.push({ pts: ap, w: 2 });
                 hexPts.push([offX, py, 1]);
-                hexOcc.push([-Math.PI / 2]); // its connecting line comes from above
+                hexOcc.push([-Math.PI / 2]); 
                 placed = true;
               }
             }
@@ -630,7 +595,7 @@
             var p1 = m1.pts;
             var vk1 = 1 + Math.floor(rnd2() * (p1.length - 2));
             var bx1 = p1[vk1][0], by1 = p1[vk1][1];
-            hexPts.push([bx1, by1, 0]); // 0 = backbone hexagon
+            hexPts.push([bx1, by1, 0]); 
             var occB = [];
             if (p1[vk1 - 1]) occB.push(Math.atan2(p1[vk1 - 1][1] - by1, p1[vk1 - 1][0] - bx1));
             if (p1[vk1 + 1]) occB.push(Math.atan2(p1[vk1 + 1][1] - by1, p1[vk1 + 1][0] - bx1));
@@ -638,7 +603,6 @@
             hexOcc.push(occB);
           }
         }
-        // keep a minimum distance between hexagons
         var hexFinal = [];
         var hexFinalOcc = [];
         for (var hf = 0; hf < hexPts.length; hf++) {
@@ -652,20 +616,17 @@
         hexPts = hexFinal;
         hexOcc = hexFinalOcc;
 
-        // ---- hub hexagons: 2-4 lines come down, turn at some point, and all connect to the SAME hexagon ----
         var hubCount = CW < 620 ? 1 : 2;
         var candIdx = [];
         for (var ci1 = 0; ci1 < hexPts.length; ci1++) if (!hexPts[ci1][2]) candIdx.push(ci1);
         for (var hb = 0; hb < hubCount && candIdx.length > 2; hb++) {
           var pick = candIdx.splice(Math.floor(rnd2() * candIdx.length), 1)[0];
           var hubP = hexPts[pick];
-          hubP[2] = 2; // 2 = hub (30% larger — it carries several lines)
+          hubP[2] = 2; 
           hubP[3] = baseHS * 1.3;
-          hubP[4] = 1; // hubs are the solid "neuron" hexagons the lines collect into
+          hubP[4] = 1; 
           var hR = hubP[3] * 0.78;
           var nArr = 2 + Math.floor(rnd2() * 3);
-          // the 2-4 lines connect to the SAME hexagon but in DIFFERENT places:
-          // top vertex, upper-left edge, upper-right edge, left/right sides
           var slots = [[0, -1], [-0.6, -0.55], [0.6, -0.55], [-0.95, 0.1], [0.95, 0.1]];
           for (var si2 = slots.length - 1; si2 > 0; si2--) {
             var sj2 = Math.floor(rnd2() * (si2 + 1));
@@ -689,22 +650,18 @@
             if (clearOf(startX, startY, startX, yT, wH) && clearOf(startX, yT, targetX, targetY, wH)) {
               reserve([[startX, startY], [startX, yT], [targetX, targetY]], wH);
               out.push({ pts: [[startX, startY], [startX, yT], [targetX, targetY]], w: wH, noEndDot: true });
-              hexOcc[pick].push(Math.atan2(startY - hubP[1], startX - hubP[0])); // this line is connected now — keep its slot free for spokes
+              hexOcc[pick].push(Math.atan2(startY - hubP[1], startX - hubP[0])); 
             }
           }
         }
-        // size & shade for the remaining hexagons: solid ones are 50% smaller
         for (var ps2 = 0; ps2 < hexPts.length; ps2++) {
           if (hexPts[ps2][2] === 2) continue;
-          if (hexPts[ps2][2] === 1) { hexPts[ps2][3] = baseHS; hexPts[ps2][4] = 0; continue; } // around-hexagons keep base size (line meets its top vertex)
+          if (hexPts[ps2][2] === 1) { hexPts[ps2][3] = baseHS; hexPts[ps2][4] = 0; continue; } 
           var isSolid = rnd2() < 0.35;
           hexPts[ps2][3] = baseHS * (isSolid ? 0.5 : 1);
           hexPts[ps2][4] = isSolid ? 1 : 0;
         }
 
-        // ---- thin short spokes from hexagon sides: at least 3 per hexagon, random lengths,
-        //      some 50% longer and turning up or down at the end ----
-        // spoke start radius on the hexagon border for an arbitrary direction
         function spokeStartR(size, dx, dy) {
           var s = size / 2, a = s * Math.sqrt(3) / 2;
           var ang = Math.atan2(dy, dx), best = Infinity;
@@ -725,11 +682,8 @@
           var nSt = nStMin + Math.floor(rnd2() * (nStMax - nStMin + 1));
           var slMin = cfg.spokeLenMin != null ? cfg.spokeLenMin : 14;
           var slMax = cfg.spokeLenMax != null ? cfg.spokeLenMax : 72;
-          // EVEN SPREAD: 360 degrees divided by (spokes + lines already connected to this hexagon) —
-          // spokes fill the gaps around the main lines, no fixed angle step, no overlaps
           var occ = hexOcc[sp] || [];
           var stepA = (2 * Math.PI) / (nSt + Math.max(1, occ.length));
-          // pick the phase rotation where the fewest target sectors collide with connected lines
           var offA = rnd2() * 2 * Math.PI, bestOff = offA, bestScore = Infinity;
           for (var oc = 0; oc < 8; oc++) {
             var cand = offA + oc * 0.79;
@@ -745,43 +699,33 @@
             if (score < bestScore) { bestScore = score; bestOff = cand; }
           }
           offA = bestOff;
-          // EVEN SPREAD, guaranteed: pick nSt evenly spaced target sectors first, then place
-          // exactly one spoke per sector — a blocked angle only jitters WITHIN its own sector,
-          // so spokes can never pile into the open half
           function trySpoke(ang) {
             var onOcc = false;
             for (var oi2 = 0; oi2 < occ.length; oi2++) {
               var da2 = ((ang - occ[oi2]) % (2 * Math.PI) + 2 * Math.PI) % (2 * Math.PI);
               if (da2 > Math.PI) da2 = 2 * Math.PI - da2;
-              if (da2 < 0.5) { onOcc = true; break; } // ~29 degrees — keep clear of the connected lines
+              if (da2 < 0.5) { onOcc = true; break; } 
             }
             if (onOcc) return false;
             var nn = [Math.cos(ang), Math.sin(ang)];
             var len = slMin + rnd2() * (slMax - slMin);
-            var rSt = spokeStartR(pSize, nn[0], nn[1]) - 2; // border point for THIS direction
+            var rSt = spokeStartR(pSize, nn[0], nn[1]) - 2; 
             var sx = hxc + nn[0] * rSt, sy = hyc + nn[1] * rSt;
-            // does this spoke turn at the end? the turned segment must keep a corner >= 90
-            // degrees from either side of the spoke line — so the tick only folds back toward
-            // horizontal, never into a hairpin
             var dU = null, lT = 0;
-            // about a third of all spokes turn up or down and then run on for a long way
-            // (corner between radial and tick stays 90-143 degrees — no hairlines)
             if (Math.abs(nn[1]) <= 0.75) {
               dU = nn[1] >= 0 ? 1 : -1;
-              lT = 48 + rnd2() * 52; // long extension: 48-100px after the turn
+              lT = 48 + rnd2() * 52; 
             }
-            // fit the radial: strict clearance, shorten until the tip has room for the end dot
             var lenF = len, okRad = false;
             for (var sc = 0; sc < 7 && !okRad; sc++) {
               if (sc > 0) lenF *= 0.7;
               var exC = hxc + nn[0] * (rSt + lenF), eyC = hyc + nn[1] * (rSt + lenF);
               okRad = clearOf(sx, sy, exC, eyC, 1.4, null, sp);
-              if (lenF < 10) break; // shorter than the dot itself — this slot cannot work
+              if (lenF < 10) break; 
             }
             if (okRad) {
               var tip = [hxc + nn[0] * (rSt + lenF), hyc + nn[1] * (rSt + lenF)];
               var cptsR = [[sx, sy], tip];
-              // fit the tick independently: shorten ONLY the tick if it hits a line
               if (dU !== null && lenF >= 20) {
                 var lTR = lT, okT = false;
                 for (var tc = 0; tc < 5 && !okT; tc++) {
@@ -795,8 +739,6 @@
               out.push({ pts: cptsR, w: 1.4, spoke: true });
               return true;
             }
-            // strict radial failed — tucked fallback for buried hexagons: no crossings, tip
-            // nestles between the lines with just enough room left for its dot
             var spts = [[sx, sy], [hxc + nn[0] * (rSt + len), hyc + nn[1] * (rSt + len)]];
             var lenR = len, okSp2 = false, cpts2 = spts;
             for (var rc = 0; rc < 3 && !okSp2; rc++) {
@@ -815,7 +757,7 @@
               okSp2 = clearOf(sx, sy, exR, eyR, 1.4, null, sp, true, [hxc, hyc]);
               if (okSp2 && cpts2.length === 3) {
                 okSp2 = clearOf(exR, eyR, cpts2[2][0], cpts2[2][1], 1.4, null, sp, true, [hxc, hyc]);
-                if (!okSp2) cpts2 = cpts2.slice(0, 2); // drop the tick, keep the radial
+                if (!okSp2) cpts2 = cpts2.slice(0, 2); 
               }
               if (lenR < 10) break;
             }
@@ -829,20 +771,17 @@
           for (var tg = 0; tg < nSt; tg++) {
             var baseT = offA + tg * stepA;
             var doneT = trySpoke(baseT);
-            // blocked? jitter within this sector only: 0, ±0.35, ±0.7, ±1.05, ±1.4 of a step
             for (var jt = 1; jt <= 4 && !doneT; jt++) {
               if (trySpoke(baseT - jt * stepA * 0.35)) doneT = true;
               else if (trySpoke(baseT + jt * stepA * 0.35)) doneT = true;
             }
           }
         }
-
         return { traces: out, pads: hexPts };
       }
-      // rounded-join PCB path — each corner gets a random fillet radius in [bmin, bmax]
       function roundedPath(pts, bmin, bmax, rfn) {
         if (pts.length < 2) return "";
-        var n = pts.length - 2; // number of corners
+        var n = pts.length - 2; 
         var rr = [];
         for (var i = 0; i < n; i++) {
           var p0 = pts[i], p1 = pts[i + 1], p2 = pts[i + 2];
@@ -851,8 +790,6 @@
           var l1 = Math.sqrt(v1x * v1x + v1y * v1y), l2 = Math.sqrt(v2x * v2x + v2y * v2y);
           rr.push((l1 && l2) ? Math.min(bmin + (rfn ? rfn() : 0.5) * (bmax - bmin), l1 / 2, l2 / 2) : 0);
         }
-        // two neighboring fillets must never eat the segment between them —
-        // keep a straight gap or the corner turns into a sharp kink
         for (var pass = 0; pass < 2; pass++) {
           for (var j = 1; j < n; j++) {
             var qx = pts[j][0] - pts[j + 1][0], qy = pts[j][1] - pts[j + 1][1];
@@ -882,10 +819,8 @@
         return d;
       }
 
-      // draw recorded traces
       for (var t2 = 0; t2 < traces.length; t2++) {
         var tr = traces[t2];
-        // spokes get their own (smaller) bevel at turns — never a sharp corner
         var sBev = cfg.spokeBevel != null ? cfg.spokeBevel : 3;
         var dd = tr.spoke
           ? roundedPath(tr.pts, sBev, sBev, null)
@@ -901,8 +836,6 @@
         traces[t2].len = el.getTotalLength();
       }
 
-      // regular hexagons (pointy-top) exactly on pad nodes — same color as the lines;
-      // solid ones are just a tiny bit darker and 50% smaller, none carry dots inside
       var hexes = cfg.hexCount || 18, drawnHex = 0;
       for (var hp = 0; hp < padNodes.length && drawnHex < hexes; hp++) {
         var hx = padNodes[hp][0], hy = padNodes[hp][1];
@@ -912,20 +845,15 @@
         poly.setAttribute("points",
           hx + "," + (hy - s) + " " + (hx + w2) + "," + (hy - s / 2) + " " + (hx + w2) + "," + (hy + s / 2) + " " +
           hx + "," + (hy + s) + " " + (hx - w2) + "," + (hy + s / 2) + " " + (hx - w2) + "," + (hy - s / 2));
-        // solid fill: any trace under the hexagon is hidden, so lines never cross it —
-        // they only meet it at the shared vertex (connected to the side/corner)
         var solidHex = !!padNodes[hp][4];
         poly.setAttribute("fill", solidHex ? "#cfcfd6" : (cfg.lineColor || "#dcdce2"));
         poly.setAttribute("fill-opacity", "1");
-        // visible outlines so hexagons never blend into the background
         poly.setAttribute("stroke", solidHex ? "#a6a6b0" : "#b3b3bd");
         poly.setAttribute("stroke-width", "1.5");
         canvas.appendChild(poly);
         drawnHex++;
       }
 
-      // dots + line-end hexagons: start dot on every mid-air line, end dots capped by dotCount,
-      // some lines terminate with a small hexagon instead of a dot; never on/behind a hexagon
       var dg = document.createElementNS(NS, "g");
       canvas.appendChild(dg);
       var exclHex = [];
@@ -947,20 +875,18 @@
         return false;
       }
       function dotEl(x, y, w) {
-        // sized to the line: a bit larger than the line, never more than 2 line-widths across
         var r = Math.max(1.5, (w || 2) * 0.9);
         var dot = document.createElementNS(NS, "circle");
         dot.setAttribute("cx", x); dot.setAttribute("cy", y); dot.setAttribute("r", r);
-        dot.setAttribute("fill", cfg.lineColor || "#dcdce2"); // same color as the lines
+        dot.setAttribute("fill", cfg.lineColor || "#dcdce2"); 
         dg.appendChild(dot);
       }
-      // pick some mid-air line ends to terminate with a small hexagon
       var endHexes = [];
       var ehTarget = Math.min(8, Math.round(traces.length * 0.14));
       var ehGuard = 0;
       while (endHexes.length < ehTarget && ehGuard++ < 200) {
         var tE = traces[Math.floor(rnd() * traces.length)];
-        if (tE.w < 2 || tE.pts.length < 3) continue; // main lines only — thin tiny lines end in dots, not hexagons
+        if (tE.w < 2 || tE.pts.length < 3) continue; 
         var eE = tE.pts[tE.pts.length - 1];
         if (eE[1] < 40 || eE[1] > H - 40) continue;
         if (nearExcl(eE[0], eE[1])) continue;
@@ -975,10 +901,8 @@
         if (sPt[1] > 10 && !traces[t3].spoke && !nearExcl(sPt[0], sPt[1])) dotEl(sPt[0], sPt[1], traces[t3].w);
         var hasEndHex = false;
         for (var he2 = 0; he2 < endHexes.length; he2++) if (endHexes[he2][0] === ePt[0] && endHexes[he2][1] === ePt[1]) { hasEndHex = true; break; }
-        // spokes get a small hollow hexagon at the tip instead of a dot
         if (!traces[t3].noEndDot && !traces[t3].spoke && !hasEndHex && !nearExcl(ePt[0], ePt[1]) && endDots < (cfg.dotCount || 80)) { dotEl(ePt[0], ePt[1], traces[t3].w); endDots++; }
       }
-      // small hexagons at the selected line ends
       for (var eh3 = 0; eh3 < endHexes.length; eh3++) {
         var hx2 = endHexes[eh3][0], hy2 = endHexes[eh3][1];
         var s2 = 7, w2b = s2 * Math.sqrt(3) / 2;
@@ -986,13 +910,11 @@
         pe.setAttribute("points",
           hx2 + "," + (hy2 - s2) + " " + (hx2 + w2b) + "," + (hy2 - s2 / 2) + " " + (hx2 + w2b) + "," + (hy2 + s2 / 2) + " " +
           hx2 + "," + (hy2 + s2) + " " + (hx2 - w2b) + "," + (hy2 + s2 / 2) + " " + (hx2 - w2b) + "," + (hy2 - s2 / 2));
-        pe.setAttribute("fill", cfg.lineColor || "#dcdce2"); // same color as the lines
+        pe.setAttribute("fill", cfg.lineColor || "#dcdce2"); 
         pe.setAttribute("stroke", "#b3b3bd");
         pe.setAttribute("stroke-width", "1.2");
         dg.appendChild(pe);
       }
-      // small hollow hexagons at every spoke tip (never solid like the pad hexagons) —
-      // size controlled by spokeHexSize
       var shs = cfg.spokeHexSize != null ? cfg.spokeHexSize : 6;
       var sh2 = shs / 2, shw = sh2 * Math.sqrt(3) / 2;
       for (var sh3 = 0; sh3 < traces.length; sh3++) {
@@ -1003,12 +925,11 @@
         shp.setAttribute("points",
           stp[0] + "," + (stp[1] - sh2) + " " + (stp[0] + shw) + "," + (stp[1] - sh2 / 2) + " " + (stp[0] + shw) + "," + (stp[1] + sh2 / 2) + " " +
           stp[0] + "," + (stp[1] + sh2) + " " + (stp[0] - shw) + "," + (stp[1] + sh2 / 2) + " " + (stp[0] - shw) + "," + (stp[1] - sh2 / 2));
-        shp.setAttribute("fill", "none"); // hollow — only the outline
+        shp.setAttribute("fill", "none"); 
         shp.setAttribute("stroke", "#b3b3bd");
         shp.setAttribute("stroke-width", "1");
         dg.appendChild(shp);
       }
-      // glow gradient def for pulses
       var defs = document.createElementNS(NS, "defs");
       var grad = document.createElementNS(NS, "radialGradient");
       grad.setAttribute("id", "pulseGlow");
@@ -1023,7 +944,6 @@
       grad.appendChild(st1); grad.appendChild(st2); defs.appendChild(grad);
       canvas.appendChild(defs);
 
-      // pulse elements (always created — signals run even under prefers-reduced-motion)
       {
         var pg = document.createElementNS(NS, "g");
         for (var p2 = 0; p2 < (cfg.pulses ? cfg.pulses.max : 8); p2++) {
@@ -1062,7 +982,6 @@
         if (ps.t >= tr.len) respawn(ps, lastCfg);
         var pt = tr.el.getPointAtLength(Math.min(ps.t, tr.len));
         ps.el.setAttribute("transform", "translate(" + pt.x + " " + pt.y + ")");
-        // hide the glow while it passes over a hexagon (no dots inside hexagons)
         var overHex = false;
         for (var ph2 = 0; ph2 < padNodes.length; ph2++) {
           var pxd = pt.x - padNodes[ph2][0], pyd = pt.y - padNodes[ph2][1];
@@ -1076,13 +995,11 @@
     var lastCfg = null;
     function start(cfg) {
       lastCfg = cfg;
-      // pulses always animate: they are a requested feature, not decorative motion
       lastTs = 0;
       if (rafId) cancelAnimationFrame(rafId);
       rafId = requestAnimationFrame(frame);
     }
 
-    // parallax: background travels with the page but at `scrollSpeed` fraction of it
     var scrollRaf = null;
     window.addEventListener("scroll", function () {
       if (scrollRaf || !lastCfg) return;
@@ -1154,8 +1071,6 @@
       return d;
     }
 
-    // node centers in cluster viewBox units (from the mini-node polygons);
-    // off = lateral offset of the card entry point, guarantees a real 45° bend
     var nodes = [
       { x: 120, y: 106, off: -70 },
       { x: 340, y: 346, off: 60 },
@@ -1177,9 +1092,7 @@
       var R = { left: a.x, top: a.y, right: b.x, bottom: b.y };
 
       nodes.forEach(function (n) {
-        // skip if the node sits inside the card (mobile stacking)
         if (n.x > R.left && n.x < R.right && n.y > R.top && n.y < R.bottom) return;
-        // entry point on the card border, laterally offset so the trace always has a 45° bend
         var tx, ty, beside;
         if (n.y >= R.bottom || n.y <= R.top) {
           ty = (n.y >= R.bottom) ? R.bottom : R.top;
@@ -1193,12 +1106,11 @@
         var dx = tx - n.x, dy = ty - n.y;
         var dl = Math.sqrt(dx * dx + dy * dy);
         if (dl < 40) return;
-        var sx = n.x + dx / dl * 34, sy = n.y + dy / dl * 34; // start on the node rim
-        // one axis segment + one 45° segment, ending exactly on the card border
+        var sx = n.x + dx / dl * 34, sy = n.y + dy / dl * 34; 
         var ex, ey;
         if (beside || Math.abs(dy) >= Math.abs(dx)) {
           ey = ty - Math.sign(dy) * Math.abs(tx - sx);
-          if (Math.abs(ey - sy) < 14) ey = ty; // too shallow -> straight
+          if (Math.abs(ey - sy) < 14) ey = ty; 
           ex = sx;
         } else {
           ex = tx - Math.sign(dx) * Math.abs(ty - sy);
@@ -1211,14 +1123,14 @@
         el.setAttribute("stroke", "#c9c9d3");
         el.setAttribute("stroke-width", "1.2");
         el.setAttribute("stroke-linecap", "round");
-        g.appendChild(el); // no draw-in animation: connected from the very first frame
+        g.appendChild(el); 
       });
     }
 
     draw();
-    if (document.fonts && document.fonts.ready) document.fonts.ready.then(draw); // re-measure when webfont metrics settle
-    setTimeout(draw, 600); // after font swap settles the layout
-    window.addEventListener("kinesis-redraw", function () { draw(); }); // demo cycle / lang changes card height
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(draw);
+    setTimeout(draw, 600);
+    window.addEventListener("kinesis-redraw", function () { draw(); });
     if (window.ResizeObserver) new ResizeObserver(function () { draw(); }).observe(card);
     var rt = null;
     window.addEventListener("resize", function () {
@@ -1229,12 +1141,12 @@
 
   /* ---------- Boot ---------- */
 
-    function boot() {
+  function boot() {
     initNav();
     initReveals();
     initBackground();
     initHeroLinks();
-    initForm(); // Initialize form once
+    initForm(); // Initialize form once (Listener handles dict dynamically)
 
     var lang = currentLang();
     loadContent(lang).then(function (dict) {
@@ -1244,6 +1156,7 @@
       demo.start(dict.demo ? dict.demo.qa : []);
     });
 
+    // Language Switcher
     document.querySelectorAll(".lang-btn").forEach(function (btn) {
       btn.addEventListener("click", function () {
         var next = btn.getAttribute("data-lang");
