@@ -9,7 +9,8 @@
   var LANGS = ["vi", "en", "ru"];
   var STORAGE_KEY = "kinesis_lang";
   var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
+  var currentDict = null;
+  
   /* ---------- i18n ---------- */
 
   function currentLang() {
@@ -229,19 +230,23 @@
 
   /* ---------- Quote form ---------- */
 
-  function initForm(content) {
+  function initForm() {
     var form = document.getElementById("quote-form");
     var status = document.getElementById("form-status");
     if (!form || !status) return;
-    var t = (content && content.contact && content.contact.form) || {};
+    
+    // Prevent attaching the submit listener multiple times
+    if (form.hasAttribute('data-listener-attached')) return;
+    form.setAttribute('data-listener-attached', 'true');
 
     form.addEventListener("submit", function (e) {
+      var t = (currentDict && currentDict.contact && currentDict.contact.form) || {}; // <-- Read from global dict dynamically
+      
       e.preventDefault();
       if (!form.checkValidity()) { form.reportValidity(); return; }
 
       var gotcha = form.querySelector('[name="_gotcha"]');
       if (gotcha && gotcha.value) {
-        // honeypot: pretend success, send nothing
         status.textContent = t.success || "";
         status.className = "form-status is-success";
         return;
@@ -262,7 +267,6 @@
       }
 
       if (action.indexOf("YOUR_FORM_ID") !== -1) {
-        // Formspree id not configured yet → mailto fallback so the form works today.
         var subject = encodeURIComponent((t.name ? t.name : "Name") + ": " + (fd.get("name") || ""));
         var bodyLines = [
           (t.name ? t.name : "Name") + ": " + (fd.get("name") || ""),
@@ -1225,18 +1229,19 @@
 
   /* ---------- Boot ---------- */
 
-  function boot() {
+    function boot() {
     initNav();
     initReveals();
     initBackground();
     initHeroLinks();
+    initForm(); // Initialize the form once on page load
 
     var lang = currentLang();
     loadContent(lang).then(function (dict) {
-      if (!dict) return; // keep static fallback text
+      if (!dict) return; 
+      currentDict = dict; // <--- Save the dictionary globally
       applyLang(lang, dict);
       demo.start(dict.demo ? dict.demo.qa : []);
-      initForm(dict);
     });
 
     document.querySelectorAll(".lang-btn").forEach(function (btn) {
@@ -1245,13 +1250,10 @@
         if (!next || next === currentLang()) return;
         loadContent(next).then(function (dict) {
           if (!dict) return;
+          currentDict = dict; // <--- Update the dictionary globally when language switches
           applyLang(next, dict);
           demo.start(dict.demo ? dict.demo.qa : []);
         });
       });
     });
   }
-
-  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
-  else boot();
-})();
