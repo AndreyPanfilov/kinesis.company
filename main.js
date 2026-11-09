@@ -9,8 +9,8 @@
   var LANGS = ["vi", "en", "ru"];
   var STORAGE_KEY = "kinesis_lang";
   var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var currentDict = null;
-  
+  var currentDict = null; // <--- ADD THIS LINE
+
   /* ---------- i18n ---------- */
 
   function currentLang() {
@@ -230,7 +230,7 @@
 
   /* ---------- Quote form ---------- */
 
-  function initForm() {
+    function initForm() {
     var form = document.getElementById("quote-form");
     var status = document.getElementById("form-status");
     if (!form || !status) return;
@@ -240,7 +240,7 @@
     form.setAttribute('data-listener-attached', 'true');
 
     form.addEventListener("submit", function (e) {
-      var t = (currentDict && currentDict.contact && currentDict.contact.form) || {}; // <-- Read from global dict dynamically
+      var t = (currentDict && currentDict.contact && currentDict.contact.form) || {};
       
       e.preventDefault();
       if (!form.checkValidity()) { form.reportValidity(); return; }
@@ -1234,12 +1234,12 @@
     initReveals();
     initBackground();
     initHeroLinks();
-    initForm(); // Initialize the form once on page load
+    initForm(); // Initialize form once
 
     var lang = currentLang();
     loadContent(lang).then(function (dict) {
       if (!dict) return; 
-      currentDict = dict; // <--- Save the dictionary globally
+      currentDict = dict; // Save dictionary globally
       applyLang(lang, dict);
       demo.start(dict.demo ? dict.demo.qa : []);
     });
@@ -1250,10 +1250,14 @@
         if (!next || next === currentLang()) return;
         loadContent(next).then(function (dict) {
           if (!dict) return;
-          currentDict = dict; // <--- Update the dictionary globally when language switches
+          currentDict = dict; // Update dictionary globally on switch
           applyLang(next, dict);
           demo.start(dict.demo ? dict.demo.qa : []);
         });
       });
     });
   }
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
+  else boot();
+})();
