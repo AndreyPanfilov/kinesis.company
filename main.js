@@ -77,6 +77,13 @@
     var desc = document.querySelector('meta[name="description"]');
     if (desc && map["meta.description"]) desc.setAttribute("content", map["meta.description"]);
 
+    // Clear any existing form status messages on language switch
+    var formStatus = document.getElementById("form-status");
+    if (formStatus) {
+      formStatus.textContent = "";
+      formStatus.className = "form-status";
+    }
+
     document.documentElement.setAttribute("lang", lang);
     document.querySelectorAll(".lang-btn").forEach(function (btn) {
       var active = btn.getAttribute("data-lang") === lang;
