@@ -216,7 +216,7 @@
       "phCompany": "ABC Company …",
       "phEmail": "you@company.vn",
       "phMessage": "What types of files do you have? Roughly how many?",
-      "success": "Thank you! Your request is in — we'll get back to you during business hours.",
+      "success": "Thank you! Your request is in — we'll get back to you soon.",
       "error": "Couldn't send it. Please contact us directly: kinesiscomp@gmail.com"
     },
     "direct": {

@@ -216,7 +216,7 @@
       "phCompany": "Công ty ABC …",
       "phEmail": "ban@congty.vn",
       "phMessage": "Các loại tệp bạn có? Khoảng bao nhiêu tệp?",
-      "success": "Cảm ơn bạn! Yêu cầu đã được gửi đi — chúng tôi sẽ phản hồi trong giờ làm việc.",
+      "success": "Cảm ơn bạn! Yêu cầu đã được gửi — chúng tôi sẽ phản hồi sớm nhất có thể.",
       "error": "Không thể gửi. Vui lòng liên hệ trực tiếp: kinesiscomp@gmail.com"
     },
     "direct": {
