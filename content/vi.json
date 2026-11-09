@@ -229,12 +229,9 @@
     "qr": {
       "title": "Hoặc quét mã để trò chuyện",
       "zalo": "Zalo",
-      "telegram": "Telegram",
       "note": "Hướng camera điện thoại vào mã — cuộc trò chuyện sẽ mở ra ngay lập tức.",
       "zaloLink": "https://zalo.me/84374514377",
-      "zaloSrc": "assets/zalo-qr.png",
-      "telegramLink": "https://t.me/+84374514377",
-      "telegramSrc": "assets/telegram-qr.png"
+      "zaloSrc": "assets/zalo-qr.png"
     }
   },
   "footer": {

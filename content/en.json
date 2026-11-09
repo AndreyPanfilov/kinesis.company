@@ -229,12 +229,9 @@
     "qr": {
       "title": "Or scan to chat",
       "zalo": "Zalo",
-      "telegram": "Telegram",
       "note": "Point your phone camera at the code — the chat opens instantly.",
       "zaloLink": "https://zalo.me/84374514377",
-      "zaloSrc": "assets/zalo-qr.png",
-      "telegramLink": "https://t.me/+84374514377",
-      "telegramSrc": "assets/telegram-qr.png"
+      "zaloSrc": "assets/zalo-qr.png"
     }
   },
   "footer": {

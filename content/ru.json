@@ -229,12 +229,9 @@
     "qr": {
       "title": "Или отсканируйте, чтобы начать чат",
       "zalo": "Zalo",
-      "telegram": "Telegram",
       "note": "Наведите камеру телефона на код — чат откроется мгновенно.",
       "zaloLink": "https://zalo.me/84374514377",
-      "zaloSrc": "assets/zalo-qr.png",
-      "telegramLink": "https://t.me/+84374514377",
-      "telegramSrc": "assets/telegram-qr.png"
+      "zaloSrc": "assets/zalo-qr.png"
     }
   },
   "footer": {
