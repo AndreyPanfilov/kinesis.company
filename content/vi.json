@@ -21,7 +21,7 @@
     "eyebrow": "KINESIS AI — 100% Bảo mật & Nội bộ",
     "titleA": "Hỏi bất cứ điều gì về tài liệu doanh nghiệp của bạn.",
     "titleAccent": "Nhận câu trả lời — với nguồn trích dẫn chính xác.",
-    "sub": "KINESIS AI chạy hoàn toàn trên một máy chủ bảo mật, được thiết kế riêng và đặt tại văn phòng của bạn. Hệ thống đọc, sắp xếp và sử dụng AI cục bộ để tạo câu trả lời từ hợp đồng, hóa đơn và báo cáo. Bạn sở hữu (OWN) phần cứng, phần mềm và dữ liệu. Bạn kiểm soát (CONTROL) nó hoàn toàn. Ngừng đưa dữ liệu doanh nghiệp nhạy cảm lên các AI công cộng. Tài liệu của bạn không bao giờ rời khỏi tòa nhà.",
+    "sub": "KINESIS AI chạy hoàn toàn trên một máy chủ bảo mật, được thiết kế riêng và đặt tại văn phòng của bạn. Hệ thống đọc, sắp xếp và tạo câu trả lời từ hợp đồng, hóa đơn và báo cáo bằng mô hình AI cục bộ. Ngừng đưa dữ liệu doanh nghiệp nhạy cảm lên các AI công cộng. Tài liệu của bạn không bao giờ rời khỏi tòa nhà. Bạn sở hữu nó, bạn kiểm soát nó.",
     "ctaPrimary": "Yêu cầu Tư vấn",
     "ctaSecondary": "Xem demo",
     "badge1": "Nội bộ & Bảo mật",
@@ -50,11 +50,11 @@
   },
   "product": {
     "eyebrow": "Giải pháp",
-    "title": "Trí tuệ cấp doanh nghiệp cho kho tài liệu của bạn",
+    "title": "Biến tài liệu của bạn thành cơ sở tri thức thông minh",
     "lead": "Biến hàng ngàn tệp PDF, bản scan và Excel rải rác thành một cơ sở tri thức duy nhất, bảo mật cao.",
     "f1": {
       "title": "Bảo mật, An toàn & Kiểm soát tuyệt đối",
-      "text": "KINESIS chạy trên một máy trạm chuyên dụng không cần kết nối internet. Không giống các công cụ khác gửi văn bản lên OpenAI hay đám mây để tạo câu trả lời, KINESIS sử dụng mô hình ngôn ngữ lớn (LLM) cục bộ. Bạn sở hữu chiếc máy này và kiểm soát hoàn toàn dữ liệu của mình."
+      "text": "KINESIS chạy trên một máy trạm chuyên dụng không cần kết nối internet. Không giống các công cụ khác gửi văn bản lên OpenAI để tạo câu trả lời, KINESIS sử dụng mô hình ngôn ngữ lớn (LLM) cục bộ. Chúng tôi kiểm tra cấu trúc PDF để chặn tệp độc hại, giữ mạng của bạn an toàn. Bạn sở hữu nó, bạn kiểm soát nó."
     },
     "f2": {
       "title": "Đọc được cả những tài liệu khó đọc nhất",

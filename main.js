@@ -48,6 +48,30 @@
     return attempt(0);
   }
 
+  /* ---------- FAQ: rendered from the content JSON ----------
+     The number of questions follows the file: every faq.qN.t / faq.qN.a
+     pair (q1, q2, q3, ...) becomes one accordion item. Add or remove
+     questions in content/{lang}.json — no HTML changes needed. */
+
+  function renderFaq(map) {
+    var list = document.querySelector(".faq-list");
+    if (!list) return;
+    var n = 0;
+    while (n < 99 && typeof map["faq.q" + (n + 1) + ".t"] === "string") n++;
+    list.textContent = "";
+    for (var i = 1; i <= n; i++) {
+      var q = document.createElement("details");
+      q.className = "faq-item";
+      var s = document.createElement("summary");
+      s.textContent = map["faq.q" + i + ".t"];
+      var p = document.createElement("p");
+      p.textContent = typeof map["faq.q" + i + ".a"] === "string" ? map["faq.q" + i + ".a"] : "";
+      q.appendChild(s);
+      q.appendChild(p);
+      list.appendChild(q);
+    }
+  }
+
   function applyLang(lang, dict) {
     var map = flatten(dict, "", {});
 
@@ -72,6 +96,8 @@
       var v = map[el.getAttribute("data-i18n-src")];
       if (typeof v === "string") el.setAttribute("src", (inSub ? "../" : "") + v);
     });
+
+    renderFaq(map);
 
     if (map["meta.title"]) document.title = map["meta.title"];
     var desc = document.querySelector('meta[name="description"]');

@@ -21,7 +21,7 @@
     "eyebrow": "KINESIS AI — 100% Private & Local",
     "titleA": "Ask anything about your business documents.",
     "titleAccent": "Get answers — with exact sources.",
-    "sub": "KINESIS AI runs entirely on a secure, custom-built server inside your office. It reads, sorts, and generates answers from your contracts, invoices, and reports using a local AI model. You own the hardware, the software, and the data. You control it completely. Stop uploading sensitive company data to public AI. Your documents never leave the building.",
+    "sub": "KINESIS AI runs entirely on a secure, custom-built server inside your office. It reads, sorts, and generates answers from your contracts, invoices, and reports using a local AI model. Stop uploading sensitive company data to public AI. Your documents never leave the building. You own it, you control it.",
     "ctaPrimary": "Request a Consultation",
     "ctaSecondary": "Watch demo",
     "badge1": "Local & Private",
@@ -50,11 +50,11 @@
   },
   "product": {
     "eyebrow": "The Solution",
-    "title": "Enterprise-grade intelligence for your document archive",
+    "title": "Turn your documents into a smart knowledge base",
     "lead": "Turn thousands of scattered PDFs, scans, and Excel files into a single, highly secure knowledge base.",
     "f1": {
       "title": "Absolute Privacy, Security & Control",
-      "text": "KINESIS runs on a dedicated workstation with no internet connection required. Unlike other tools that secretly send retrieved text to OpenAI or the cloud to generate an answer, KINESIS uses a local LLM to generate responses. You own the machine, and you control your data."
+      "text": "KINESIS runs on a dedicated workstation with no internet connection required. Unlike other tools that secretly send text to OpenAI to generate a reply, KINESIS uses a local LLM. We validate PDF structures to block malicious files, keeping your network safe. You own it, you control it."
     },
     "f2": {
       "title": "Reads the Unreadable",
