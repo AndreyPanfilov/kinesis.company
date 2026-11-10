@@ -13,6 +13,7 @@
     "product": "Product",
     "how": "How it works",
     "for": "Who it's for",
+    "faq": "FAQ",
     "about": "About",
     "contact": "Contact",
     "cta": "Request a Consultation"
@@ -21,7 +22,7 @@
     "eyebrow": "KINESIS AI — 100% Private & Local",
     "titleA": "Ask anything about your business documents.",
     "titleAccent": "Get answers — with exact sources.",
-    "sub": "KINESIS AI runs entirely on a secure, custom-built server inside your office. It reads, sorts, and generates answers from your contracts, invoices, and reports using a local AI model. Stop uploading sensitive company data to public AI. Your documents never leave the building. You own it, you control it.",
+    "sub": "KINESIS AI runs entirely on a secure, custom-designed server installed inside your office. It reads, sorts, and generates answers from your contracts, invoices, and reports using a local AI model. Stop uploading sensitive company data to public AI. Your documents never leave the building. You own it, you control it.",
     "ctaPrimary": "Request a Consultation",
     "ctaSecondary": "Watch demo",
     "badge1": "Local & Private",
@@ -54,7 +55,7 @@
     "lead": "Turn thousands of scattered PDFs, scans, and Excel files into a single, highly secure knowledge base.",
     "f1": {
       "title": "Absolute Privacy, Security & Control",
-      "text": "KINESIS runs on a dedicated workstation with no internet connection required. Unlike other tools that secretly send text to OpenAI to generate a reply, KINESIS uses a local LLM. We validate PDF structures to block malicious files, keeping your network safe. You own it, you control it."
+      "text": "KINESIS runs on a dedicated workstation with no internet connection required. Unlike other tools that send text to cloud AI for processing and generating replies, KINESIS uses local AI and tools. We validate PDF structures to block malicious files, keeping your network safe. You own it, you control it."
     },
     "f2": {
       "title": "Reads the Unreadable",
