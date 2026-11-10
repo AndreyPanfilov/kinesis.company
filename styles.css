@@ -154,6 +154,7 @@ button { font: inherit; cursor: pointer; }
   padding: 0.4rem 0;
   border-bottom: 2px solid transparent;
   transition: color 0.2s ease, border-color 0.2s ease;
+  white-space: nowrap;
 }
 .nav-links a:hover { color: var(--ink); border-bottom-color: var(--accent); }
 .nav-right { display: flex; align-items: center; gap: 0.9rem; }
@@ -205,7 +206,7 @@ button { font: inherit; cursor: pointer; }
 .btn-primary:hover { background: var(--accent); color: #14141b; }
 .btn-secondary { border-color: var(--ink); color: var(--ink); background: transparent; }
 .btn-secondary:hover { background: var(--ink); color: var(--paper); }
-.nav-cta { min-height: 44px; padding: 0 1.2rem; font-size: 0.88rem; }
+.nav-cta { min-height: 44px; padding: 0 1.2rem; font-size: 0.88rem; white-space: nowrap; }
 
 .nav-toggle {
   display: none;
@@ -845,7 +846,8 @@ a.qr-card:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px;
   .about-grid, .contact-grid { grid-template-columns: 1fr; }
   .footer-legal { margin-left: 0; }
 }
-@media (max-width: 860px) {
+@media (max-width: 1119px) {
+  /* the full nav needs ~1100px (longest labels + CTA), so below that the hamburger takes over */
   .nav-links, .nav-cta { display: none; }
   .nav-toggle { display: grid; }
 }
