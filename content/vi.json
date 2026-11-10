@@ -21,10 +21,10 @@
     "eyebrow": "KINESIS AI — 100% Bảo mật & Nội bộ",
     "titleA": "Hỏi bất cứ điều gì về tài liệu doanh nghiệp của bạn.",
     "titleAccent": "Nhận câu trả lời — với nguồn trích dẫn chính xác.",
-    "sub": "KINESIS AI chạy hoàn toàn trên một máy chủ bảo mật, được thiết kế riêng và đặt tại văn phòng của bạn. Hệ thống đọc, sắp xếp và trả lời các câu hỏi từ hợp đồng, hóa đơn và báo cáo—mỗi câu trả lời đều chỉ ra chính xác nguồn dữ liệu gốc. Ngừng đưa dữ liệu doanh nghiệp nhạy cảm lên các AI công cộng. Tài liệu của bạn không bao giờ rời khỏi tòa nhà.",
+    "sub": "KINESIS AI chạy hoàn toàn trên một máy chủ bảo mật, được thiết kế riêng và đặt tại văn phòng của bạn. Hệ thống đọc, sắp xếp và sử dụng AI cục bộ để tạo câu trả lời từ hợp đồng, hóa đơn và báo cáo. Bạn sở hữu (OWN) phần cứng, phần mềm và dữ liệu. Bạn kiểm soát (CONTROL) nó hoàn toàn. Ngừng đưa dữ liệu doanh nghiệp nhạy cảm lên các AI công cộng. Tài liệu của bạn không bao giờ rời khỏi tòa nhà.",
     "ctaPrimary": "Yêu cầu Tư vấn",
     "ctaSecondary": "Xem demo",
-    "badge1": "100% Nội bộ (On-Premise)",
+    "badge1": "Nội bộ & Bảo mật",
     "badge2": "Hỗ trợ tiếng Việt & Anh",
     "badge3": "Đủ điều kiện nhận tài trợ Chuyển đổi số"
   },
@@ -53,8 +53,8 @@
     "title": "Trí tuệ cấp doanh nghiệp cho kho tài liệu của bạn",
     "lead": "Biến hàng ngàn tệp PDF, bản scan và Excel rải rác thành một cơ sở tri thức duy nhất, bảo mật cao.",
     "f1": {
-      "title": "Bảo mật & An toàn tuyệt đối",
-      "text": "KINESIS chạy trên một máy trạm chuyên dụng không cần kết nối internet. Chúng tôi sử dụng mã hóa TLS 1.3 cho giao diện nội bộ và kiểm tra cấu trúc PDF để chặn các tệp độc hại—giữ cho mạng của bạn hoàn toàn an toàn."
+      "title": "Bảo mật, An toàn & Kiểm soát tuyệt đối",
+      "text": "KINESIS chạy trên một máy trạm chuyên dụng không cần kết nối internet. Không giống các công cụ khác gửi văn bản lên OpenAI hay đám mây để tạo câu trả lời, KINESIS sử dụng mô hình ngôn ngữ lớn (LLM) cục bộ. Bạn sở hữu chiếc máy này và kiểm soát hoàn toàn dữ liệu của mình."
     },
     "f2": {
       "title": "Đọc được cả những tài liệu khó đọc nhất",
@@ -177,6 +177,18 @@
     "q5": {
       "t": "Hệ thống có xác thực chữ ký số không?",
       "a": "Có. KINESIS được thiết kế đặc biệt để phát hiện và đọc chữ ký số chính thức trên các tài liệu hành chính và thương mại của Việt Nam (điều mà nhiều hệ thống CNTT tiêu chuẩn không làm được), cũng như nhận diện con dấu công ty trên giấy tờ scan."
+    },
+    "q6": {
+      "t": "KINESIS có sử dụng ChatGPT hay OpenAI không?",
+      "a": "Không. KINESIS chạy các mô hình AI mã nguồn mở (như Qwen và Gemma) hoàn toàn trên máy chủ cục bộ của bạn. Chúng tôi không kết nối với OpenAI hay bất kỳ API bên ngoài nào. Điều này có nghĩa là không có phí API, bảo mật tuyệt đối và khả năng hoạt động hoàn toàn ngoại tuyến."
+    },
+    "q7": {
+      "t": "Hệ thống có sử dụng API bên ngoài nào để xây dựng cơ sở dữ liệu không?",
+      "a": "Không. Toàn bộ quy trình—bao gồm trích xuất văn bản, OCR, phân loại và tạo vector nhúng (embedding)—đều chạy hoàn toàn ngoại tuyến trên phần cứng của bạn. Chúng tôi sử dụng các mô hình nhúng mã nguồn mở tại chỗ. Không có dữ liệu nào được gửi đến các API bên thứ ba như OpenAI, Google hay AWS trong quá trình xây dựng cơ sở dữ liệu hoặc truy vấn."
+    },
+    "q8": {
+      "t": "Tôi thấy một hệ thống tương tự trên mạng với giá 1.500 USD. Tại sao của anh lại đắt hơn?",
+      "a": "Anh đang so sánh hai sản phẩm hoàn toàn khác biệt. Một hệ thống 1.500 USD thường chỉ là một lớp vỏ bọc (wrapper) cơ bản với khả năng tùy chỉnh bằng không. Nó sẽ thất bại với các bản scan lộn xộn hoặc các bảng kế toán phức tạp. Quan trọng hơn, nó đi kèm với các khoản phí API hàng tháng ẩn, cộng thêm phí xử lý tính theo số trang (thường tính thêm phí để trích xuất bảng hoặc hình ảnh từ tệp DOCX). Hệ thống của KINESIS chạy 100% cục bộ. Chúng tôi làm phần kỹ thuật khó nhất: tối ưu hóa OCR, trích xuất bảng phức tạp và tự động làm thẳng trang—được thiết kế riêng cho quy trình làm việc chính xác của anh. Anh trả tiền một lần cho sự kiểm soát hoàn toàn, không có bất kỳ khoản phí xử lý nào phát sinh."
     }
   },
   "about": {

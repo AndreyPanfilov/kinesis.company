@@ -21,10 +21,10 @@
     "eyebrow": "KINESIS AI — 100% Private & Local",
     "titleA": "Ask anything about your business documents.",
     "titleAccent": "Get answers — with exact sources.",
-    "sub": "KINESIS AI runs entirely on a secure, custom-built server inside your office. It reads, sorts, and answers questions from your contracts, invoices, and reports—with every answer pointing to the exact source. Stop uploading sensitive company data to public AI. Your documents never leave the building.",
+    "sub": "KINESIS AI runs entirely on a secure, custom-built server inside your office. It reads, sorts, and generates answers from your contracts, invoices, and reports using a local AI model. You own the hardware, the software, and the data. You control it completely. Stop uploading sensitive company data to public AI. Your documents never leave the building.",
     "ctaPrimary": "Request a Consultation",
     "ctaSecondary": "Watch demo",
-    "badge1": "100% On-Premise",
+    "badge1": "Local & Private",
     "badge2": "Native VN & EN Support",
     "badge3": "Eligible for Gov. Digital Grants"
   },
@@ -53,8 +53,8 @@
     "title": "Enterprise-grade intelligence for your document archive",
     "lead": "Turn thousands of scattered PDFs, scans, and Excel files into a single, highly secure knowledge base.",
     "f1": {
-      "title": "Absolute Privacy & Security",
-      "text": "KINESIS runs on a dedicated workstation with no internet connection required. We use TLS 1.3 encryption for the local interface and validate PDF structures to block malicious files—keeping your network completely safe."
+      "title": "Absolute Privacy, Security & Control",
+      "text": "KINESIS runs on a dedicated workstation with no internet connection required. Unlike other tools that secretly send retrieved text to OpenAI or the cloud to generate an answer, KINESIS uses a local LLM to generate responses. You own the machine, and you control your data."
     },
     "f2": {
       "title": "Reads the Unreadable",
@@ -155,7 +155,7 @@
       "line": "If your team loses hours digging through PDF folders, KINESIS is the company's shared brain."
     }
   },
-  "faq": {
+    "faq": {
     "eyebrow": "FAQ",
     "title": "Common Questions",
     "q1": {
@@ -177,6 +177,18 @@
     "q5": {
       "t": "Does it verify digital signatures?",
       "a": "Yes. KINESIS is specifically engineered to detect and read official digital signatures on Vietnamese government and commercial documents (which many standard IT systems fail to verify), as well as recognizing company stamps on scanned papers."
+    },
+    "q6": {
+      "t": "Does KINESIS use ChatGPT or OpenAI?",
+      "a": "No. KINESIS runs open-weight AI models (like Qwen and Gemma) entirely on your local server. We do not connect to OpenAI or any external API. This means zero API fees, absolute privacy, and full offline capability."
+    },
+    "q7": {
+      "t": "Do you use any external APIs to build the database?",
+      "a": "No. The entire pipeline—including text extraction, OCR, classification, and embedding generation—runs completely offline on your local hardware. We use open-source embedding models locally. No data is ever sent to third-party APIs like OpenAI, Google, or AWS during the database build or query process."
+    },
+    "q8": {
+      "t": "I saw a similar system online for $1,500. Why is yours more expensive?",
+      "a": "You are comparing two completely different products. A $1,500 system is a basic cloud wrapper with zero customization. It fails on complex tables and messy scans. More importantly, it comes with hidden monthly API fees plus per-page processing fees (often charging extra for tables/images in DOCX files). KINESIS is 100% local. We do the hard engineering—custom OCR, complex table extraction, and page leveling—tailored to your exact workflows. You pay once for total control, with zero ongoing processing fees."
     }
   },
   "about": {
