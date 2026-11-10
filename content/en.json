@@ -19,7 +19,7 @@
     "cta": "Consultation"
   },
   "hero": {
-    "eyebrow": "KINESIS AI — 100% Private & Local",
+    "eyebrow": "KINESIS AI — Enterprise-Grade. 100% Private & Local.",
     "titleA": "Ask anything about your business documents.",
     "titleAccent": "Get answers — with exact sources.",
     "sub": "KINESIS AI runs entirely on a secure, custom-designed server installed inside your office. It reads, sorts, and generates answers from your contracts, invoices, and reports using a local AI model. Stop uploading sensitive company data to public AI. Your documents never leave the building. You own it, you control it.",
@@ -59,7 +59,7 @@
     },
     "f2": {
       "title": "Reads the Unreadable",
-      "text": "Blurry scans? Upside-down pages? Complex accounting tables that other software turns into garbage? Our custom engine perfectly reads Vietnamese text, company stamps, official digital signatures, and messy tables."
+      "text": "Blurry scans? Upside-down pages? Complex accounting tables that other software turns into garbage? Our custom engine automatically levels and straightens pages, verifies digital signatures, and perfectly reads multilingual text and complex tables."
     },
     "f3": {
       "title": "Cited Answers, Zero Guessing",
