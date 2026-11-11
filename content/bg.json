@@ -5,7 +5,7 @@
   "lineWidths": [2, 3, 4],
   "lineColor": "#dcdce2",
   "opacity": 0.35,
-  "hexCount": 18,
+  "hexCount": 30,
   "hexSize": 20,
   "hexStroke": "#d6d6db",
   "hexSpokeCount": 16,
@@ -16,7 +16,7 @@
   "spokeLenMax": 72,
   "spokeHexSize": 6,
   "branchMin": 12,
-  "branchMax": 20,
+  "branchMax": 24,
   "dotCount": 80,
   "accentDotCount": 3,
   "bevelMin": 4,
@@ -26,7 +26,7 @@
   "pulses": {
     "max": 20,
     "speedMin": 10,
-    "speedMax": 20,
+    "speedMax": 30,
     "glowRadius": 10,
     "core": 2,
     "color": "#db814c"
