@@ -102,7 +102,7 @@
       "title": "Investment & Pricing",
       "f1": {
         "k": "Software & Setup Fee",
-        "v": "Starting at $8,000 - $10,000 USD. This covers software licensing, custom deployment, and indexing of your initial document archive."
+        "v": "Starting at $8,000 - $10,000 USD. (Pre-Tet Launch Offer: Lock in this rate before the Lunar New Year. Standard pricing applies after Tet.)"
       },
       "f2": {
         "k": "Custom Hardware (Separate Budget)",
@@ -218,7 +218,7 @@
     "eyebrow": "Contact",
     "title": "Request a Consultation",
     "lead": "Tell us briefly about your documents and your office setup. We'll reply with a custom software plan, hardware specs, and an official quote.",
-    "priceline": "Early Client Pricing: Software setup starts at $8,000. We are offering this discounted rate for our first 3 clients before Tet. Standard pricing applies thereafter. Custom hardware is a separate budget. Also, you can ask us about state grants for integrating AI into your business.",
+    "priceline": "Pre-Tet Launch Offer: Software setup starts at $8,000. We are offering this discounted rate for our first 3 clients before the Lunar New Year. Standard pricing applies thereafter. Custom hardware is a separate budget.",
     "form": {
       "name": "Full name",
       "company": "Company",

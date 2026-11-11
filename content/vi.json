@@ -102,7 +102,7 @@
       "title": "Chi phí & Tài trợ Chính phủ",
       "f1": {
         "k": "Phí Phần mềm & Triển khai",
-        "v": "Từ 200 - 250 triệu VNĐ. Bao gồm bản quyền phần mềm, triển khai tùy chỉnh và lập chỉ mục kho tài liệu ban đầu của bạn."
+        "v": "Từ 200 - 250 triệu VNĐ. (Ưu đãi trước Tết: Khóa mức giá này trước thềm năm mới. Giá tiêu chuẩn sẽ áp dụng sau Tết.)"
       },
       "f2": {
         "k": "Phần cứng (Ngân sách riêng)",
@@ -218,7 +218,7 @@
     "eyebrow": "Liên hệ",
     "title": "Yêu cầu Tư vấn",
     "lead": "Cho chúng tôi biết sơ lược về tài liệu và thiết lập văn phòng của bạn. Chúng tôi sẽ phản hồi với kế hoạch phần mềm tùy chỉnh, thông số phần cứng và báo giá chính thức.",
-    "priceline": "Ưu đãi Khách hàng Đầu tiên: Chi phí phần mềm bắt đầu từ 200 triệu VNĐ. Chúng tôi đang áp dụng mức giá ưu đãi này cho 3 khách hàng đầu tiên trước Tết. Sau Tết, giá sẽ áp dụng theo tiêu chuẩn thị trường. Phần cứng tùy chỉnh là ngân sách riêng. Ngoài ra, bạn có thể hỏi chúng tôi về các khoản tài trợ của nhà nước cho việc ứng dụng AI vào doanh nghiệp.",
+    "priceline": "Ưu đãi trước Tết: Chi phí phần mềm bắt đầu từ 200 triệu VNĐ. Chúng tôi đang áp dụng mức giá ưu đãi này cho 3 khách hàng đầu tiên trước Tết. Sau Tết, giá sẽ áp dụng theo tiêu chuẩn thị trường. Phần cứng tùy chỉnh là ngân sách riêng.",
     "form": {
       "name": "Họ và tên",
       "company": "Công ty",
