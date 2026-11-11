@@ -840,6 +840,9 @@ a.qr-card:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px;
 @media (max-width: 1024px) {
   .hero-inner { grid-template-columns: 1fr; }
   .hero-visual { min-height: 0; margin-top: 1.5rem; }
+  /* stacked layout: pin the demo card's height (measured max of all demo rounds ×
+     languages at this width band) so the typing animation can't push the page */
+  .demo-card { min-height: 232px; }
   .hero-cluster { top: -56px; right: -10px; width: min(360px, 85%); opacity: 0.7; }
   .steps { grid-template-columns: repeat(2, 1fr); }
   .steps::before { display: none; }
@@ -856,6 +859,7 @@ a.qr-card:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px;
   .trace-line { display: none; }
   .sec-head-text { flex-basis: 100%; }
   .node-chip { width: 54px; height: 54px; }
+  .demo-card { min-height: 264px; }
 }
 @media (max-width: 420px) {
   /* keep brand + lang switcher + hamburger inside 320px viewports */
@@ -865,6 +869,15 @@ a.qr-card:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px;
   .brand-logo-footer { height: 16px; }
   .lang-switch { padding: 2px; }
   .lang-btn { min-width: 33px; height: 32px; font-size: 0.7rem; }
+}
+/* phones up to 450px wide (incl. 430px iPhone Pro Max class): content there is
+   ~284-308px; above 450px it drops to <=264px, covered by the band above.
+   +slack: some engines report the CSS viewport as width+ε */
+@media (max-width: 450px) {
+  .demo-card { min-height: 335px; }
+}
+@media (max-width: 359px) {
+  .demo-card { min-height: 420px; }
 }
 @media (max-width: 560px) {
   .steps { grid-template-columns: 1fr; gap: 1.6rem; }
