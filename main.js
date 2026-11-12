@@ -14,13 +14,23 @@
   /* ---------- i18n ---------- */
 
   function currentLang() {
+    var p = window.location.pathname;
+    // 1. Priority: The physical folder dictates the language
+    if (/\/en(\/|$)/.test(p)) return "en";
+    if (/\/ru(\/|$)/.test(p)) return "ru";
+    
+    // 2. Fallback: Check URL parameters
     var params = new URLSearchParams(window.location.search);
     var q = params.get("lang");
     if (LANGS.indexOf(q) !== -1) return q;
+    
+    // 3. Fallback: Local storage (only if not in a specific folder)
     try {
       var stored = localStorage.getItem(STORAGE_KEY);
       if (LANGS.indexOf(stored) !== -1) return stored;
     } catch (e) { /* private mode */ }
+    
+    // 4. Fallback: Default HTML attribute
     var def = document.documentElement.getAttribute("data-default-lang");
     return LANGS.indexOf(def) !== -1 ? def : "vi";
   }
@@ -1166,36 +1176,30 @@
     initReveals();
     initBackground();
     initHeroLinks();
-    initForm(); // Initialize form once (Listener handles dict dynamically)
+    initForm();
 
     var lang = currentLang();
     loadContent(lang).then(function (dict) {
       if (!dict) return; 
-      currentDict = dict; // Save dictionary globally
+      currentDict = dict;
       applyLang(lang, dict);
       demo.start(dict.demo ? dict.demo.qa : []);
     });
 
-    // Language Switcher
+    // Language Switcher - Standard Navigation
     document.querySelectorAll(".lang-btn").forEach(function (btn) {
       btn.addEventListener("click", function () {
         var next = btn.getAttribute("data-lang");
         if (!next || next === currentLang()) return;
 
-        // --- CLEAR THE FORM SUCCESS MESSAGE ---
-        var formStatus = document.getElementById("form-status");
-        if (formStatus) {
-          formStatus.textContent = "";
-          formStatus.className = "form-status";
-        }
-        // --------------------------------------
+        try { localStorage.setItem(STORAGE_KEY, next); } catch (e) { /* ignore */ }
 
-        loadContent(next).then(function (dict) {
-          if (!dict) return;
-          currentDict = dict; // Update dictionary globally on switch
-          applyLang(next, dict);
-          demo.start(dict.demo ? dict.demo.qa : []);
-        });
+        // Force page reload to the physical folder
+        if (next === "vi") {
+          window.location.href = "/";
+        } else {
+          window.location.href = "/" + next + "/";
+        }
       });
     });
   }
