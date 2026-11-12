@@ -2,22 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://kinesiscomp.com/</loc>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://kinesiscomp.com/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://kinesiscomp.com/en/"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://kinesiscomp.com/ru/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kinesiscomp.com/"/>
+    <loc>https://www.kinesis.company/</loc>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.kinesis.company/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.kinesis.company/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.kinesis.company/?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.kinesis.company/"/>
   </url>
   <url>
-    <loc>https://kinesiscomp.com/en/</loc>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://kinesiscomp.com/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://kinesiscomp.com/en/"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://kinesiscomp.com/ru/"/>
+    <loc>https://www.kinesis.company/?lang=en</loc>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.kinesis.company/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.kinesis.company/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.kinesis.company/?lang=ru"/>
   </url>
   <url>
-    <loc>https://kinesiscomp.com/ru/</loc>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://kinesiscomp.com/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://kinesiscomp.com/en/"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://kinesiscomp.com/ru/"/>
+    <loc>https://www.kinesis.company/?lang=ru</loc>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.kinesis.company/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.kinesis.company/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.kinesis.company/?lang=ru"/>
   </url>
 </urlset>
