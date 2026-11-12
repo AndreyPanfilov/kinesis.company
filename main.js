@@ -111,12 +111,6 @@
     });
 
     try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) { /* ignore */ }
-
-    var url = new URL(window.location.href);
-    if (url.searchParams.get("lang") !== lang) {
-      url.searchParams.set("lang", lang);
-      history.replaceState(null, "", url);
-    }
   }
 
   /* ---------- Hero demo (typed Q&A) ---------- */
