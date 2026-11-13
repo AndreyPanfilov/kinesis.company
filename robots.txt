@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://kinesiscomp.com/sitemap.xml
+Sitemap: https://www.kinesis.company/sitemap.xml
