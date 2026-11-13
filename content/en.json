@@ -20,8 +20,8 @@
   },
   "hero": {
     "eyebrow": "KINESIS AI — Enterprise-Grade. 100% Private & Local.",
-    "titleA": "Ask anything about your business documents.",
-    "titleAccent": "Get answers — with exact sources.",
+    "titleA": "Local AI Assistant & RAG System for Business.",
+    "titleAccent": "Ask anything about your documents. Get answers with exact citations.",
     "sub": "KINESIS AI runs entirely on a secure, custom-designed server installed inside your office. It reads, sorts, and generates answers from your contracts, invoices, and reports using a local AI model. Stop uploading sensitive company data to public AI. Your documents never leave the building. You own it, you control it.",
     "ctaPrimary": "Request a Consultation",
     "ctaSecondary": "Watch demo",
