@@ -269,6 +269,12 @@ button { font: inherit; cursor: pointer; }
   margin: 1rem 0 1.2rem;
 }
 .title-accent {
+  /*Makes margins and line-heights work properly on a span */
+  display: inline-block;   
+  /*Pulls the text UP closer to the main title (adjust the -0.5rem as needed) */
+  margin-top: -0.5rem;   
+  /*Reduces the spacing BETWEEN the lines if this text wraps to a second line */
+  line-height: 1.15;
   font-size: 0.5em; /* Makes it 15% smaller than the main title */
   background: linear-gradient(92deg, #1c1c24 0%, #7a4a12 48%, var(--accent) 100%);
   -webkit-background-clip: text;
