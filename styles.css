@@ -269,6 +269,7 @@ button { font: inherit; cursor: pointer; }
   margin: 1rem 0 1.2rem;
 }
 .title-accent {
+  font-size: 0.5em; /* Makes it 15% smaller than the main title */
   background: linear-gradient(92deg, #1c1c24 0%, #7a4a12 48%, var(--accent) 100%);
   -webkit-background-clip: text;
   background-clip: text;
